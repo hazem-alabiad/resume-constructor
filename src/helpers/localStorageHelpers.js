@@ -23,8 +23,9 @@ export const isAuthenticated = (): Boolean => {
   return user_info && user_info.token ? true : false;
 };
 
-export const logout = (): void => {
+export const logout = (clearCurrentUserInfo: Function): void => {
   localStorage.clear();
+  clearCurrentUserInfo();
   navigate(ROUTE_NAMES.login);
 };
 

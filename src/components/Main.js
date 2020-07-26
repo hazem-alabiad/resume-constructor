@@ -4,6 +4,7 @@ import {
   setCurrentUserInfo
 } from "actions/userInfoActions";
 import { login, signup } from "api/apis";
+import { logout } from "helpers/localStorageHelpers";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ROUTE_NAMES } from "../constants/routeNames";
@@ -39,10 +40,12 @@ class Main extends Component {
     login(username, password, this.props.setCurrentUserInfo);
   };
 
+  onLogout = () => logout(this.props.clearCurrentUserInfo);
+
   render() {
     return (
       <Router>
-        <Home path={ROUTE_NAMES.home} default />
+        <Home path={ROUTE_NAMES.home} logout={this.onLogout} default />
         <Login path={ROUTE_NAMES.login} onSubmit={this.loginSubmit} />
         <Signup path={ROUTE_NAMES.register} onSubmit={this.signupSubmit} />
       </Router>

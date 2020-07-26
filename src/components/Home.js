@@ -1,13 +1,14 @@
 import { navigate } from "@reach/router";
 import { ROUTE_NAMES } from "constants/routeNames";
 import { isAuthenticated } from "helpers/localStorageHelpers";
+import PropTypes from "prop-types";
 import React from "react";
 import { Container } from "semantic-ui-react";
 import Header from "./Header";
 import Login from "./Login";
 import NotAuthorized from "./NotAuthorized";
 
-const Home = () => {
+const Home = ({ logout }) => {
   if (!isAuthenticated()) {
     // If not authenticated
     setTimeout(() => {
@@ -23,10 +24,13 @@ const Home = () => {
   }
 
   // Remove any mis-typed URL
-  navigate(ROUTE_NAMES.home);
+  if (window.location.href.split("/")[3] !== ROUTE_NAMES.home) {
+    navigate(ROUTE_NAMES.home);
+  }
+
   return (
     <>
-      <Header />
+      <Header logout={logout} />
       <Container>
         <h1>Home</h1>
       </Container>
@@ -35,3 +39,7 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.propTypes = {
+  logout: PropTypes.func.isRequired,
+};
