@@ -7,9 +7,9 @@ import React from "react";
 const minLen = (str, len) => {
   return str.length < len ? i18n.t("MinLenErr", { num: len }) : "";
 };
-const maxLen = (str, len) => {
-  return str.length > len ? i18n.t("MaxLenErr", { num: len }) : "";
-};
+// const maxLen = (str, len) => {
+//   return str.length > len ? i18n.t("MaxLenErr", { num: len }) : "";
+// };
 
 /**
  *

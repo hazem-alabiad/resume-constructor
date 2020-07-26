@@ -1,6 +1,7 @@
 import {
-  isAuthenticated, loadPersistState,
-  persistState
+  isAuthenticated,
+  loadPersistState,
+  persistState,
 } from "helpers/localStorageHelpers";
 import userInfoReducer from "reducers/userInfoReducer";
 import { applyMiddleware, combineReducers, createStore } from "redux";
@@ -21,7 +22,7 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-const unPersistState = store.subscribe(() => {
+store.subscribe(() => {
   if (isAuthenticated()) {
     persistState(store.getState());
   }
