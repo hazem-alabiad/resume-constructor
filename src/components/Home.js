@@ -24,7 +24,7 @@ const Home = ({ logout }) => {
   }
 
   // Remove any mis-typed URL
-  if (window.location.href.split("/")[3] !== ROUTE_NAMES.home) {
+  if (window.location.href.split("/")[3] !== "") {
     navigate(ROUTE_NAMES.home);
   }
 
