@@ -12,7 +12,7 @@ import * as serviceWorker from "./serviceWorker";
 import "react-toastify/dist/ReactToastify.css";
 
 const loading = (
-  <Grid centered className="mt-5" verticalAlign="middle">
+  <Grid container centered className="mt-5" verticalAlign="middle">
     <Grid.Row>
       <Grid.Column>
         <Loader active inline="centered">

@@ -1,9 +1,10 @@
 import { Router } from "@reach/router";
 import {
   clearCurrentUserInfo,
-  setCurrentUserInfo
+  setCurrentUserInfo,
 } from "actions/userInfoActions";
 import { login, signup } from "api/apis";
+import { DESIGN_SYSTEM } from "designSystem";
 import { logout } from "helpers/localStorageHelpers";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -45,7 +46,12 @@ class Main extends Component {
   render() {
     return (
       <Router>
-        <Home path={ROUTE_NAMES.home} logout={this.onLogout} default />
+        <Home
+          path={ROUTE_NAMES.home}
+          logout={this.onLogout}
+          userInfo={this.props.userInfo}
+          default
+        />
         <Login path={ROUTE_NAMES.login} onSubmit={this.loginSubmit} />
         <Signup path={ROUTE_NAMES.register} onSubmit={this.signupSubmit} />
       </Router>

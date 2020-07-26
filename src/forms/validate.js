@@ -38,6 +38,21 @@ const validate = (values) => {
   } else {
     errors.password = minLen(values.password, 3);
   }
+
+  // ########   firstName    ########
+  if (!values.firstName) {
+    errors.firstName = <WithTrans keyword="Required" />;
+  } else {
+    errors.firstName = minLen(values.firstName, 2);
+  }
+
+  // ########   lastName    ########
+  if (!values.lastName) {
+    errors.lastName = <WithTrans keyword="Required" />;
+  } else {
+    errors.lastName = minLen(values.lastName, 2);
+  }
+
   return errors;
 };
 

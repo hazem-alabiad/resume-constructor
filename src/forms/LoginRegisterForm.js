@@ -6,8 +6,8 @@ import {
   Form,
   Header,
   Image,
-
-  Message, Segment
+  Message,
+  Segment
 } from "semantic-ui-react";
 import renderField from "./renderField";
 
@@ -35,20 +35,20 @@ const LoginRegisterForm = ({ handleSubmit, submitting, invalid, formName }) => {
             <></>
           ) : (
             <>
-              <Form.Field>
-                <label htmlFor="firstName">{t("First Name")}</label>
+              <Form.Field required>
                 <Field
                   name="firstName"
-                  component="input"
+                  component={renderField}
+                  label={t("First Name")}
                   type="text"
                   placeholder={t("John")}
                 />
               </Form.Field>
-              <Form.Field>
-                <label htmlFor="lastName">{t("Last Name")}</label>
+              <Form.Field required>
                 <Field
                   name="lastName"
-                  component="input"
+                  component={renderField}
+                  label={t("Last Name")}
                   type="text"
                   placeholder={t("Lweis")}
                 />

@@ -21,7 +21,7 @@ const SignupForm = ({ handleSubmit, submitting, invalid }) => {
   return (
     <>
       <LanguageSelector />
-      <Grid className="mt-4" centered style={{ height: "100vh" }}>
+      <Grid container className="mt-4" centered style={{ height: "100vh" }}>
         <Grid.Column mobile={14} tablet={10} computer={6}>
           <Grid.Column>
             <LoginRegisterForm

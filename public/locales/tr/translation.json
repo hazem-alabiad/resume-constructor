@@ -1,5 +1,7 @@
 {
 	"Already have an account": "Zaten hesabınız var mı",
+	"Background": "Geçmiş",
+	"Connections": "Bağlantılar",
 	"First Name": "İsim",
 	"John": "Ali",
 	"Last Name": "Soyadı",
@@ -8,10 +10,13 @@
 	"Lweis": "Kaya",
 	"MaxLenErr": "≤ ;{{num}}' Karakter olmalı!",
 	"MinLenErr": "≥ '{{num}}' Karakter olmalı!",
+	"Name": "Ad",
 	"New to Oplog": "Oplog'da yeni",
 	"Password": "Parola",
 	"Required": "Gereklidir!",
+	"Send a message": "Bir mesaj gönder",
 	"Signup": "kaydol",
+	"Surname": "Soyadı",
 	"Username": "Kullanıcı adı",
 	"login": {
 		"failure": "Giriş yapılırken bir hata oluştu!",

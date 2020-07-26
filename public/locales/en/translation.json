@@ -1,5 +1,7 @@
 {
 	"Already have an account": "Already have an account",
+	"Background": "Background",
+	"Connections": "Connections",
 	"First Name": "First Name",
 	"John": "John",
 	"Last Name": "Last Name",
@@ -8,10 +10,13 @@
 	"Lweis": "Lweis",
 	"MaxLenErr": "Must be ≤ '{{num}}' Characters!",
 	"MinLenErr": "Must be ≥ '{{num}}' Characters!",
+	"Name": "Name",
 	"New to Oplog": "New to Oplog",
 	"Password": "Password",
 	"Required": "Required!",
+	"Send a message": "Send a message",
 	"Signup": "Signup",
+	"Surname": "Surname",
 	"Username": "Username",
 	"login": {
 		"failure": "There was an error during logging in!",

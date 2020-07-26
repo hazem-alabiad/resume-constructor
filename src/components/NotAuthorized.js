@@ -10,7 +10,7 @@ const { setTopMargin: setPageTopMargin } = DESIGN_SYSTEM;
 // ###############    Main Component    ###############
 const NotAuthorized = () => {
   return (
-    <Grid verticalAlign="middle" centered style={setPageTopMargin("100px")}>
+    <Grid container verticalAlign="middle" centered style={setPageTopMargin("100px")}>
       <Grid.Row>
         <Loader type="Plane" width={40} color="blue" />
       </Grid.Row>
