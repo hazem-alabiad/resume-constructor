@@ -1,0 +1,27 @@
+{
+	"Already have an account": "Already have an account",
+	"First Name": "First Name",
+	"John": "John",
+	"Last Name": "Last Name",
+	"Login": "Login",
+	"Logout": "Logout",
+	"Lweis": "Lweis",
+	"MaxLenErr": "Must be ≤ '{{num}}' Characters!",
+	"MinLenErr": "Must be ≥ '{{num}}' Characters!",
+	"New to Oplog": "New to Oplog",
+	"Password": "Password",
+	"Required": "Required!",
+	"Signup": "Signup",
+	"Username": "Username",
+	"login": {
+		"failure": "There was an error during logging in!",
+		"invalid": "Username or password is incorrect!",
+		"success": "You have been logged in successfully!"
+	},
+	"redirectToLogin": "You are being directed to the login page ...",
+	"register": {
+		"duplicate": "Username '{{username}}' is already taken!",
+		"failure": "There was an error in the registration!",
+		"success": "You have registered successfully!"
+	}
+}

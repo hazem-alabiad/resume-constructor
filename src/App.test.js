@@ -1,9 +1,17 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+test("login reducer", () => {
+  const beforeLogin = {
+    username: "",
+    password: "",
+    token: "",
+  };
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const afterLogin = {
+    username: "",
+  };
 });
+
+test("Register Reducer", () => {
+  const beforeRegister = {
+    
+  }
+})

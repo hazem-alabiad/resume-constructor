@@ -1,0 +1,27 @@
+{
+	"Already have an account": "Zaten hesabınız var mı",
+	"First Name": "İsim",
+	"John": "Ali",
+	"Last Name": "Soyadı",
+	"Login": "Oturum aç",
+	"Logout": "Çıkış Yap",
+	"Lweis": "Kaya",
+	"MaxLenErr": "≤ ;{{num}}' Karakter olmalı!",
+	"MinLenErr": "≥ '{{num}}' Karakter olmalı!",
+	"New to Oplog": "Oplog'da yeni",
+	"Password": "Parola",
+	"Required": "Gereklidir!",
+	"Signup": "kaydol",
+	"Username": "Kullanıcı adı",
+	"login": {
+		"failure": "Giriş yapılırken bir hata oluştu!",
+		"invalid": "Kullanıcı adı veya şifre yanlış!",
+		"success": "Başarıyla giriş yaptınız!"
+	},
+	"redirectToLogin": "Giriş sayfasına yönlendiriliyorsunuz ...",
+	"register": {
+		"duplicate": "'{{username}}' kullanıcı adı zaten alınmış!",
+		"failure": "Kayıtta bir hata oluştu!",
+		"success": "Başarıyla kaydoldunuz!"
+	}
+}

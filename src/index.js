@@ -1,14 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "semantic-ui-css/semantic.min.css";
+import { Grid, Loader } from "semantic-ui-react";
+import App from "./App";
+// import i18n (needs to be bundled ;))
+import "./i18n";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
+import "react-toastify/dist/ReactToastify.css";
+
+const loading = (
+  <Grid centered className="mt-5" verticalAlign="middle">
+    <Grid.Row>
+      <Grid.Column>
+        <Loader active inline="centered">
+          Loading
+        </Loader>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
+);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Suspense fallback={loading}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Suspense>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
