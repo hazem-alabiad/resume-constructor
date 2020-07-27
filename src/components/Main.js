@@ -12,6 +12,7 @@ import { ROUTE_NAMES } from "../constants/routeNames";
 import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
+import { Transition } from "semantic-ui-react";
 
 const mapStateToProps = (state) => ({
   userInfo: state.userInfo,

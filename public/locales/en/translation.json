@@ -19,6 +19,10 @@
 	"Signup": "Signup",
 	"Surname": "Surname",
 	"Username": "Username",
+	"experience": {
+		"failure": "There was an error during adding a new experience!",
+		"success": "You have added a new experience successfully!"
+	},
 	"login": {
 		"failure": "There was an error during logging in!",
 		"invalid": "Username or password is incorrect!",

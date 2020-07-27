@@ -15,11 +15,12 @@ const headers = {
 };
 
 // #####################    Methods   #####################
-/**
- * @param {string} username
- * @param {string} password
- */
-export const signup = (username, password, firstName = "", lastName = "") => {
+export const signup = (
+  username: String,
+  password: String,
+  firstName: String = "",
+  lastName: String = ""
+) => {
   Axios.post(
     URLS.BASE_URL + URLS.SIGNUP,
     {
@@ -29,7 +30,7 @@ export const signup = (username, password, firstName = "", lastName = "") => {
       lastName,
     },
     {
-      headers: headers,
+      headers,
     }
   )
     .then((res) => {
@@ -58,13 +59,11 @@ export const signup = (username, password, firstName = "", lastName = "") => {
     });
 };
 
-/**
- *
- * @param {string} username
- * @param {string} password
- * @param {Function} setCurrentUserInfo Dispatches an action to set the user data
- */
-export const login = (username, password, setCurrentUserInfo) => {
+export const login = (
+  username: String,
+  password: String,
+  setCurrentUserInfo: Function
+) => {
   Axios.post(
     URLS.BASE_URL + URLS.LOGIN,
     {
@@ -72,7 +71,7 @@ export const login = (username, password, setCurrentUserInfo) => {
       password,
     },
     {
-      headers: headers,
+      headers,
     }
   )
     .then((res) => {
@@ -100,5 +99,36 @@ export const login = (username, password, setCurrentUserInfo) => {
         // general error message
         toast.error(<WithTrans keyword="login.failure" />);
       }
+    });
+};
+
+export const addExperience = (
+  role: String,
+  company: String,
+  description: String
+) => {
+  Axios.post(
+    URLS.BASE_URL + URLS.EXPERIENCE,
+    {
+      role,
+      company,
+      description,
+    },
+    {
+      headers,
+    }
+  )
+    .then((res) => {
+      if (res.status === 200) {
+        // If success
+        toast.success(<WithTrans keyword="experience.success" />);
+      }
+    })
+    .catch((err) => {
+      // if failure
+      console.error(err.response);
+
+      // general error message
+      toast.error(<WithTrans keyword="login.failure" />);
     });
 };

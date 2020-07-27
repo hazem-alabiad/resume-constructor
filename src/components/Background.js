@@ -1,12 +1,12 @@
 import { DESIGN_SYSTEM } from "designSystem";
 import React from "react";
-import { Grid, Icon, Label, Segment } from "semantic-ui-react";
+import { Button, Grid, Icon, Label, Popup, Segment } from "semantic-ui-react";
 import WithTrans from "./WithTrans";
 
 // ###############   Helper Components    ##################
 const Experience = () => {
   const {
-    experienceNameStyle,
+    experienceRoleStyle,
     experienceCompanyStyle,
     experienceDateStyle,
   } = DESIGN_SYSTEM;
@@ -18,10 +18,20 @@ const Experience = () => {
         <span className="text-secondary">
           {<WithTrans keyword="Experience" />}
         </span>
+        <span className="ml-5">
+          <Popup
+            content="Add users to your feed"
+            trigger={
+              <Button icon size="mini" circular color="teal">
+                <Icon name="plus" />
+              </Button>
+            }
+          />
+        </span>
       </div>
       <Grid>
         <Grid.Column floated="left" mobile="12" tablet="13" computer="14">
-          {experienceNameStyle("Software Engineer")}
+          {experienceRoleStyle("Software Engineer")}
           {experienceCompanyStyle("Microsoft")}
           {experienceDateStyle("June 2010 - September 2010 (4 months)")}
         </Grid.Column>

@@ -19,6 +19,10 @@
 	"Signup": "kaydol",
 	"Surname": "Soyadı",
 	"Username": "Kullanıcı adı",
+	"experience": {
+		"failure": "Yeni bir deneyim eklenirken bir hata oluştu!",
+		"success": "Başarıyla yeni bir deneyim eklediniz!"
+	},
 	"login": {
 		"failure": "Giriş yapılırken bir hata oluştu!",
 		"invalid": "Kullanıcı adı veya şifre yanlış!",

@@ -28,7 +28,7 @@ export const DESIGN_SYSTEM = {
   },
 
   // ##########   Experience Styling   ###########
-  experienceNameStyle: (str: String): HTMLDivElement => {
+  experienceRoleStyle: (str: String): HTMLDivElement => {
     return <div style={{ color: "black", fontWeight: "bold" }}>{str}</div>;
   },
 
