@@ -1,3 +1,5 @@
+import React from "react";
+
 export const DESIGN_SYSTEM = {
   // #############################################
   // ##############   Properties   ###############
@@ -23,6 +25,19 @@ export const DESIGN_SYSTEM = {
 
   setAzureBgColor: () => {
     document.body.style.backgroundColor = "azure";
+  },
+
+  // ##########   Experience Styling   ###########
+  experienceNameStyle: (str: String): HTMLDivElement => {
+    return <div style={{ color: "black", fontWeight: "bold" }}>{str}</div>;
+  },
+
+  experienceCompanyStyle: (str: String): HTMLDivElement => {
+    return <div style={{ color: "dimgrey" }}>{str}</div>;
+  },
+
+  experienceDateStyle: (str: String): HTMLDivElement => {
+    return <div style={{ color: "grey" }}>{str}</div>;
   },
 
   many: (...objects) => {

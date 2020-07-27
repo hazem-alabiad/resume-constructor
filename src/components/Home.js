@@ -5,7 +5,7 @@ import { isAuthenticated } from "helpers/localStorageHelpers";
 import PropTypes from "prop-types";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Grid, Segment } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import Background from "./Background";
 import Bio from "./Bio";
 import Header from "./Header";
@@ -54,11 +54,9 @@ const Home = ({ logout, userInfo }) => {
       <Header logout={logout} />
       <Grid container centered>
         <Grid.Column mobile="16" tablet="14" computer="12">
-          <Segment>
-            <Grid container centered padded="vertically" verticalAlign="middle">
-              <Bio userInfo={userInfo} />
-            </Grid>
-          </Segment>
+          <Bio userInfo={userInfo} />
+        </Grid.Column>
+        <Grid.Column mobile="16" tablet="14" computer="12">
           <Background />
         </Grid.Column>
       </Grid>
