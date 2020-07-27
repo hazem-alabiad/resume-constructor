@@ -4,7 +4,7 @@ import {
   persistState,
 } from "helpers/localStorageHelpers";
 import userInfoReducer from "reducers/userInfoReducer";
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { reducer as formReducer } from "redux-form";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
@@ -15,11 +15,15 @@ const rootReducer = combineReducers({
   userInfo: userInfoReducer,
 });
 
+const composeEnhancers =
+  (typeof window !== "undefined" &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
 const store = createStore(
   rootReducer,
   persistentState,
-  applyMiddleware(thunk, logger) + window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancers(applyMiddleware(thunk, logger))
 );
 
 store.subscribe(() => {

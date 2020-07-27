@@ -8,17 +8,30 @@ import React from "react";
 import { toast } from "react-toastify";
 import * as URLS from "./urls";
 
+// #####################    Globals   #####################
+const headers = {
+  "Content-Type": "application/javascript",
+  "Access-Control-Allow-Origin": "*",
+};
+
+// #####################    Methods   #####################
 /**
  * @param {string} username
  * @param {string} password
  */
 export const signup = (username, password, firstName = "", lastName = "") => {
-  Axios.post(URLS.BASE_URL + URLS.SIGNUP, {
-    username,
-    password,
-    firstName,
-    lastName,
-  })
+  Axios.post(
+    URLS.BASE_URL + URLS.SIGNUP,
+    {
+      username,
+      password,
+      firstName,
+      lastName,
+    },
+    {
+      headers: headers,
+    }
+  )
     .then((res) => {
       if (res.status === 200) {
         // If success
@@ -52,10 +65,16 @@ export const signup = (username, password, firstName = "", lastName = "") => {
  * @param {Function} setCurrentUser Dispatches an action to set the user data
  */
 export const login = (username, password, clearCurrentUserInfo) => {
-  Axios.post(URLS.BASE_URL + URLS.LOGIN, {
-    username,
-    password,
-  })
+  Axios.post(
+    URLS.BASE_URL + URLS.LOGIN,
+    {
+      username,
+      password,
+    },
+    {
+      headers: headers,
+    }
+  )
     .then((res) => {
       if (res.status === 200) {
         // If success
