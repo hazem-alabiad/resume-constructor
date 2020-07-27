@@ -1,5 +1,3 @@
-import { ROUTE_NAMES } from "constants/routeNames";
-
 export const DESIGN_SYSTEM = {
   // #############################################
   // ##############   Properties   ###############
@@ -23,8 +21,8 @@ export const DESIGN_SYSTEM = {
     return { marginTop: margin };
   },
 
-  setAzureBgColor: (route: String = ROUTE_NAMES.home): Object => {
-    return route === ROUTE_NAMES.home ? { backgroundColor: "azure" } : {};
+  setAzureBgColor: () => {
+    document.body.style.backgroundColor = "azure";
   },
 
   many: (...objects) => {
