@@ -79,7 +79,12 @@ export const login = (username, password, clearCurrentUserInfo) => {
       if (res.status === 200) {
         // If success
         clearCurrentUserInfo(res.data);
-        toast.success(<WithTrans keyword="login.success" />);
+        toast.success(
+          <WithTrans
+            keyword="login.success"
+            vars={{ username: res.data.username }}
+          />
+        );
         // Save the user data in the local storage
         setObject(USER_INFO, res.data);
         //redirect to home

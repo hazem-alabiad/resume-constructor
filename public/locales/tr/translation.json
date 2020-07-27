@@ -21,7 +21,7 @@
 	"login": {
 		"failure": "Giriş yapılırken bir hata oluştu!",
 		"invalid": "Kullanıcı adı veya şifre yanlış!",
-		"success": "Başarıyla giriş yaptınız!"
+		"success": "Tekrar hoşgeldiniz, '{{username}}'!"
 	},
 	"redirectToLogin": "Giriş sayfasına yönlendiriliyorsunuz ...",
 	"register": {

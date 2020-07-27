@@ -21,7 +21,7 @@
 	"login": {
 		"failure": "There was an error during logging in!",
 		"invalid": "Username or password is incorrect!",
-		"success": "You have been logged in successfully!"
+		"success": "Welcome again, '{{username}}'!"
 	},
 	"redirectToLogin": "You are being directed to the login page ...",
 	"register": {
