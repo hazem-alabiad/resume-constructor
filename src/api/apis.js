@@ -10,7 +10,7 @@ import * as URLS from "./urls";
 
 // #####################    Globals   #####################
 const headers = {
-  "Content-Type": "application/javascript",
+  "Content-Type": "application/json",
   "Access-Control-Allow-Origin": "*",
 };
 
