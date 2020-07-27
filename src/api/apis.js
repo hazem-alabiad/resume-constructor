@@ -1,7 +1,7 @@
 import { navigate } from "@reach/router";
 import Axios from "axios";
 import WithTrans from "components/WithTrans";
-import { USER_INFO } from "constants/auth";
+import { TOKEN_NAME } from "constants/auth";
 import { ROUTE_NAMES } from "constants/routeNames";
 import { setObject } from "helpers/localStorageHelpers";
 import React from "react";
@@ -62,9 +62,9 @@ export const signup = (username, password, firstName = "", lastName = "") => {
  *
  * @param {string} username
  * @param {string} password
- * @param {Function} setCurrentUser Dispatches an action to set the user data
+ * @param {Function} setCurrentUserInfo Dispatches an action to set the user data
  */
-export const login = (username, password, clearCurrentUserInfo) => {
+export const login = (username, password, setCurrentUserInfo) => {
   Axios.post(
     URLS.BASE_URL + URLS.LOGIN,
     {
@@ -78,7 +78,7 @@ export const login = (username, password, clearCurrentUserInfo) => {
     .then((res) => {
       if (res.status === 200) {
         // If success
-        clearCurrentUserInfo(res.data);
+        setCurrentUserInfo(res.data);
         toast.success(
           <WithTrans
             keyword="login.success"
@@ -86,7 +86,7 @@ export const login = (username, password, clearCurrentUserInfo) => {
           />
         );
         // Save the user data in the local storage
-        setObject(USER_INFO, res.data);
+        setObject(TOKEN_NAME, res.data.token);
         //redirect to home
         navigate(ROUTE_NAMES.home);
       }

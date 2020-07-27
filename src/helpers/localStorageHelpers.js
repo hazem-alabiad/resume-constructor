@@ -1,5 +1,5 @@
 import { navigate } from "@reach/router";
-import { STATE, USER_INFO } from "constants/auth";
+import { STATE, TOKEN_NAME } from "constants/auth";
 import { ROUTE_NAMES } from "constants/routeNames";
 
 export const setItem = (key: String, value: String): void => {
@@ -19,8 +19,8 @@ export const getObject = (key: String): Object => {
 };
 
 export const isAuthenticated = (): Boolean => {
-  let user_info = getObject(USER_INFO);
-  return user_info && user_info.token ? true : false;
+  let token = getObject(TOKEN_NAME);
+  return token ? true : false;
 };
 
 export const logout = (clearCurrentUserInfo: Function): void => {
