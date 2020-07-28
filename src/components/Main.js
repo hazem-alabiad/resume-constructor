@@ -1,10 +1,9 @@
 import { Router } from "@reach/router";
 import {
   clearCurrentUserInfo,
-  setCurrentUserInfo,
+  setCurrentUserInfo
 } from "actions/userInfoActions";
 import { login, signup } from "api/apis";
-import { DESIGN_SYSTEM } from "designSystem";
 import { logout } from "helpers/localStorageHelpers";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -12,8 +11,8 @@ import { ROUTE_NAMES } from "../constants/routeNames";
 import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
-import { Transition } from "semantic-ui-react";
 
+// ###################   Helpers    ####################
 const mapStateToProps = (state) => ({
   userInfo: state.userInfo,
 });
@@ -24,6 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 /**
+ * ################   Main Component    ################
  * @typedef {object} Props
  * @property {Function} setCurrentUserInfo
  * @property {Function} clearCurrentUserInfo

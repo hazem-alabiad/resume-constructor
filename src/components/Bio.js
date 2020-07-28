@@ -92,7 +92,6 @@ const Bio = ({ userInfo }) => {
             src="https://semantic-ui.com/images/avatar2/large/matthew.png"
             circular
             size="medium"
-            centered
           />
         </Grid.Column>
         <Grid.Column mobile="15" tablet="10" computer="11">

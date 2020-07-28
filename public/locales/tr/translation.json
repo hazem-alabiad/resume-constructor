@@ -1,7 +1,10 @@
 {
 	"Already have an account": "Zaten hesabınız var mı",
 	"Background": "Geçmiş",
+	"Cancel": "İptal et",
+	"Company": "Şirket",
 	"Connections": "Bağlantılar",
+	"Description": "Açıklama",
 	"Experience": "Deneyim",
 	"First Name": "İsim",
 	"John": "Ali",
@@ -15,12 +18,25 @@
 	"New to Oplog": "Oplog'da yeni",
 	"Password": "Parola",
 	"Required": "Gereklidir!",
+	"Role": "Rol",
 	"Send a message": "Bir mesaj gönder",
 	"Signup": "kaydol",
+	"Submit": "Gönder",
 	"Surname": "Soyadı",
 	"Username": "Kullanıcı adı",
 	"experience": {
+		"add": "Yeni bir deneyim ekleyin",
+		"company": {
+			"placeholder": "Örneğin. Google"
+		},
+		"description": {
+			"placeholder": "- Takım Lideri, TGU projesi.\n- Çözüm Mimarı, bulut hizmetleri."
+		},
+		"edit": "Deneyimi düzenle",
 		"failure": "Yeni bir deneyim eklenirken bir hata oluştu!",
+		"role": {
+			"placeholder": "Örneğin. Yazılım Mühendisi"
+		},
 		"success": "Başarıyla yeni bir deneyim eklediniz!"
 	},
 	"login": {

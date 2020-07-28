@@ -1,47 +1,9 @@
-import { DESIGN_SYSTEM } from "designSystem";
 import React from "react";
-import { Button, Grid, Icon, Label, Popup, Segment } from "semantic-ui-react";
+import { Grid, Label, Segment } from "semantic-ui-react";
+import Experience from "./Experience";
 import WithTrans from "./WithTrans";
 
 // ###############   Helper Components    ##################
-const Experience = () => {
-  const {
-    experienceRoleStyle,
-    experienceCompanyStyle,
-    experienceDateStyle,
-  } = DESIGN_SYSTEM;
-
-  return (
-    <>
-      <div className="mb-4">
-        <Icon name="file alternate" size="large" className="mr-3" />
-        <span className="text-secondary">
-          {<WithTrans keyword="Experience" />}
-        </span>
-        <span className="ml-5">
-          <Popup
-            content="Add users to your feed"
-            trigger={
-              <Button icon size="mini" circular color="teal">
-                <Icon name="plus" />
-              </Button>
-            }
-          />
-        </span>
-      </div>
-      <Grid>
-        <Grid.Column floated="left" mobile="12" tablet="13" computer="14">
-          {experienceRoleStyle("Software Engineer")}
-          {experienceCompanyStyle("Microsoft")}
-          {experienceDateStyle("June 2010 - September 2010 (4 months)")}
-        </Grid.Column>
-        <Grid.Column floated="right" mobile="4" tablet="3" computer="2">
-          <Icon name="microsoft" floated="right" size="huge" />
-        </Grid.Column>
-      </Grid>
-    </>
-  );
-};
 
 /**
  * ##################   Main Component    ##################
@@ -68,3 +30,21 @@ const Background = () => {
 };
 
 export default Background;
+
+// ###################    Types   ###################
+// ActionModal.propTypes = {
+//   isOpen: PropTypes.bool.isRequired,
+//   toggle: PropTypes.func.isRequired,
+//   header: PropTypes.object.isRequired,
+//   content: PropTypes.element.isRequired,
+//   handleSubmit: PropTypes.func.isRequired,
+//   onClose: PropTypes.func.isRequired,
+//   icon: PropTypes.string,
+// };
+
+// BackgroundSectionHeader.propTypes = {
+//   sectionIcon: PropTypes.string.isRequired,
+//   sectionName: PropTypes.string.isRequired,
+//   sectionAddHeader: PropTypes.string.isRequired,
+//   handleSubmit: PropTypes.func.isRequired,
+// };

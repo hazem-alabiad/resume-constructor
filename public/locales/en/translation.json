@@ -1,7 +1,10 @@
 {
 	"Already have an account": "Already have an account",
 	"Background": "Background",
+	"Cancel": "Cancel",
+	"Company": "Company",
 	"Connections": "Connections",
+	"Description": "Description",
 	"Experience": "Experience",
 	"First Name": "First Name",
 	"John": "John",
@@ -15,12 +18,25 @@
 	"New to Oplog": "New to Oplog",
 	"Password": "Password",
 	"Required": "Required!",
+	"Role": "Role",
 	"Send a message": "Send a message",
 	"Signup": "Signup",
+	"Submit": "Submit",
 	"Surname": "Surname",
 	"Username": "Username",
 	"experience": {
+		"add": "Add a new experience",
+		"company": {
+			"placeholder": "e.g. Google"
+		},
+		"description": {
+			"placeholder": "- Team Lead, TGU project.\n- Solution Architect, cloud services."
+		},
+		"edit": "Edit experience",
 		"failure": "There was an error during adding a new experience!",
+		"role": {
+			"placeholder": "e.g. Software engineer"
+		},
 		"success": "You have added a new experience successfully!"
 	},
 	"login": {

@@ -1,7 +1,8 @@
 import { Link } from "@reach/router";
 import { ROUTE_NAMES } from "constants/routeNames";
+import { FORM_NAMES } from "forms/formNames";
 import LoginRegisterForm from "forms/LoginRegisterForm";
-import validate from "forms/validate";
+import loginSignupValidate from "forms/loginRegisterValidate";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { reduxForm } from "redux-form";
@@ -11,13 +12,13 @@ import LanguageSelector from "./LanguageSelector";
 // ###################    Globals    ##################
 
 // ###############    Main Component    ###############
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, submitting, invalid }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { handleSubmit, submitting, invalid } = props;
   const { t } = useTranslation();
+
   return (
     <>
       <LanguageSelector />
@@ -43,8 +44,8 @@ const LoginForm = (props) => {
 };
 
 const Login = reduxForm({
-  form: "login",
-  validate,
+  form: FORM_NAMES.login,
+  validate: loginSignupValidate,
 })(LoginForm);
 
 export default Login;
