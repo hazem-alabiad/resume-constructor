@@ -32,12 +32,12 @@ const mapDispatchToProps = (dispatch) => ({
  * @extends {Component<Props>}
  */
 class Main extends Component {
-  signupSubmit = (values) => {
+  handleSignupSubmit = (values) => {
     const { username, password, firstName, lastName } = values;
     signup(username, password, firstName, lastName);
   };
 
-  loginSubmit = (values) => {
+  handleLoginSubmit = (values) => {
     const { username, password } = values;
     login(username, password, this.props.setCurrentUserInfo);
   };
@@ -53,8 +53,16 @@ class Main extends Component {
           userInfo={this.props.userInfo}
           default
         />
-        <Login path={ROUTE_NAMES.login} onSubmit={this.loginSubmit} />
-        <Signup path={ROUTE_NAMES.register} onSubmit={this.signupSubmit} />
+        <Home
+          path={ROUTE_NAMES.editProfile}
+          logout={this.onLogout}
+          userInfo={this.props.userInfo}
+        />
+        <Login path={ROUTE_NAMES.login} onSubmit={this.handleLoginSubmit} />
+        <Signup
+          path={ROUTE_NAMES.register}
+          onSubmit={this.handleSignupSubmit}
+        />
       </Router>
     );
   }

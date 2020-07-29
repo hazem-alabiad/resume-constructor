@@ -3,7 +3,7 @@ import renderField from "forms/renderField";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Field, reduxForm } from "redux-form";
-import { Button, Form, Icon, TextArea } from "semantic-ui-react";
+import { Button, Form, Icon } from "semantic-ui-react";
 import WithTrans from "./WithTrans";
 
 // ##############   Helper Components    ##############
@@ -15,7 +15,12 @@ import WithTrans from "./WithTrans";
  * @param {boolean} props.invalid
  * @param {string} props.formName
  */
-const AddNewExperienceForm = ({ handleSubmit, submitting, invalid }) => {
+const _AddExperienceForm = ({
+  handleSubmit,
+  submitting,
+  invalid,
+  onSubmitClose,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -38,11 +43,12 @@ const AddNewExperienceForm = ({ handleSubmit, submitting, invalid }) => {
           placeholder={t("experience.company.placeholder")}
         />
       </Form.Field>
-      <Form.Field required>
-        <label>{<WithTrans keyword="Description" />}</label>
+      <Form.Field>
         <Field
           name="description"
-          component={TextArea}
+          component={renderField}
+          label={t("Description")}
+          type="textarea"
           placeholder={t("experience.description.placeholder")}
         />
       </Form.Field>
@@ -62,8 +68,8 @@ const AddNewExperienceForm = ({ handleSubmit, submitting, invalid }) => {
 };
 
 // ###############    Main Component    ###############
-const AddNewExperience = reduxForm({
-  form: FORM_NAMES.addNewExperience,
-})(AddNewExperienceForm);
+const AddExperienceForm = reduxForm({
+  form: FORM_NAMES.addExperience,
+})(_AddExperienceForm);
 
-export default AddNewExperience;
+export default AddExperienceForm;

@@ -4,7 +4,6 @@ import { DESIGN_SYSTEM } from "designSystem";
 import { isAuthenticated } from "helpers/localStorageHelpers";
 import PropTypes from "prop-types";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { Grid } from "semantic-ui-react";
 import Background from "./Background";
 import Bio from "./Bio";
@@ -25,8 +24,6 @@ import NotAuthorized from "./NotAuthorized";
  * @param {string} props.userInfo.lastName
  */
 const Home = ({ logout, userInfo }) => {
-  const { t } = useTranslation();
-
   if (!isAuthenticated()) {
     // If not authenticated
     setTimeout(() => {
@@ -42,7 +39,10 @@ const Home = ({ logout, userInfo }) => {
   }
 
   // Remove any mis-typed URL
-  if (window.location.pathname !== ROUTE_NAMES.home) {
+  if (
+    window.location.pathname !== ROUTE_NAMES.home &&
+    window.location.pathname !== ROUTE_NAMES.editProfile
+  ) {
     navigate(ROUTE_NAMES.home);
   } else {
     // If home, change body background color to "azure"
@@ -70,9 +70,9 @@ export default Home;
 Home.propTypes = {
   logout: PropTypes.func.isRequired,
   userInfo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    username: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
   }),
 };

@@ -9,8 +9,8 @@ import {
   Icon,
   Image,
   Placeholder,
-  Statistic,
-  Segment,
+
+  Segment, Statistic
 } from "semantic-ui-react";
 import WithTrans from "./WithTrans";
 
@@ -109,18 +109,18 @@ export default Bio;
 // ###################    Types   ###################
 Name.propTypes = {
   userInfo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    username: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
   }),
 };
 
 Bio.propTypes = {
   userInfo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    username: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
   }),
 };

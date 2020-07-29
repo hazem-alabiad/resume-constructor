@@ -1,3 +1,5 @@
+import { navigate } from "@reach/router";
+import { ROUTE_NAMES } from "constants/routeNames";
 import PropTypes from "prop-types";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -20,6 +22,16 @@ const Header = ({ logout }) => {
           <Icon name="sign-out"></Icon> <WithTrans keyword="Logout" />
         </Button>
       </Menu.Item>
+      <Menu className="ml-auto" secondary>
+        <Menu.Item>
+          <Button onClick={() => navigate(ROUTE_NAMES.home)}>Home</Button>
+        </Menu.Item>
+        <Menu.Item>
+          <Button onClick={() => navigate(ROUTE_NAMES.editProfile)}>
+            Edit my profile
+          </Button>
+        </Menu.Item>
+      </Menu>
       <Menu.Menu position="right">
         <Menu.Item>
           <Button.Group size="mini">

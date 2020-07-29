@@ -3,4 +3,5 @@ export const ROUTE_NAMES = {
   auth: "/Auth",
   login: "/Auth/authenticate",
   register: "/Auth/register",
+  editProfile: "/edit_profile",
 };

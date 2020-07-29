@@ -29,11 +29,13 @@
 		"company": {
 			"placeholder": "e.g. Google"
 		},
+		"delete": "Delete experience",
 		"description": {
 			"placeholder": "- Team Lead, TGU project.\n- Solution Architect, cloud services."
 		},
 		"edit": "Edit experience",
 		"failure": "There was an error during adding a new experience!",
+		"fetchError": "There was a problem during fetching your experiences!",
 		"role": {
 			"placeholder": "e.g. Software engineer"
 		},
@@ -42,7 +44,7 @@
 	"login": {
 		"failure": "There was an error during logging in!",
 		"invalid": "Username or password is incorrect!",
-		"success": "Welcome again, '{{username}}'!"
+		"success": "Welcome again, {{username}}!"
 	},
 	"redirectToLogin": "You are being directed to the login page ...",
 	"register": {

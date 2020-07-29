@@ -3,16 +3,18 @@ import Axios from "axios";
 import WithTrans from "components/WithTrans";
 import { TOKEN_NAME } from "constants/auth";
 import { ROUTE_NAMES } from "constants/routeNames";
-import { setObject } from "helpers/localStorageHelpers";
+import { getObject, setObject } from "helpers/localStorageHelpers";
 import React from "react";
 import { toast } from "react-toastify";
 import * as URLS from "./urls";
 
 // #####################    Globals   #####################
-const headers = {
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*",
-};
+Axios.defaults.baseURL = URLS.BASE_URL;
+Axios.defaults.headers.common["Authorization"] = `Bearer ${getObject(
+  TOKEN_NAME
+)}`;
+Axios.defaults.headers.post["Content-Type"] = "application/json";
+Axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 // #####################    Methods   #####################
 export const signup = (
@@ -21,18 +23,12 @@ export const signup = (
   firstName: String = "",
   lastName: String = ""
 ) => {
-  Axios.post(
-    URLS.BASE_URL + URLS.SIGNUP,
-    {
-      username,
-      password,
-      firstName,
-      lastName,
-    },
-    {
-      headers,
-    }
-  )
+  Axios.post(URLS.BASE_URL + URLS.SIGNUP, {
+    username,
+    password,
+    firstName,
+    lastName,
+  })
     .then((res) => {
       if (res.status === 200) {
         // If success
@@ -64,16 +60,10 @@ export const login = (
   password: String,
   setCurrentUserInfo: Function
 ) => {
-  Axios.post(
-    URLS.BASE_URL + URLS.LOGIN,
-    {
-      username,
-      password,
-    },
-    {
-      headers,
-    }
-  )
+  Axios.post(URLS.BASE_URL + URLS.LOGIN, {
+    username,
+    password,
+  })
     .then((res) => {
       if (res.status === 200) {
         // If success
@@ -105,22 +95,22 @@ export const login = (
 export const addExperience = (
   role: String,
   company: String,
-  description: String
+  description: String,
+  addExperienceAction: Function,
+  onSubmitClose: Function
 ) => {
-  Axios.post(
-    URLS.BASE_URL + URLS.EXPERIENCE,
-    {
-      role,
-      company,
-      description,
-    },
-    {
-      headers,
-    }
-  )
+  Axios.post(URLS.BASE_URL + URLS.EXPERIENCE, {
+    role,
+    company,
+    description,
+  })
     .then((res) => {
       if (res.status === 200) {
         // If success
+        // Close the modal
+        onSubmitClose();
+        const experience = { role, company, description };
+        addExperienceAction(experience);
         toast.success(<WithTrans keyword="experience.success" />);
       }
     })
@@ -129,6 +119,23 @@ export const addExperience = (
       console.error(err.response);
 
       // general error message
-      toast.error(<WithTrans keyword="login.failure" />);
+      toast.error(<WithTrans keyword="experience.failure" />);
+    });
+};
+
+export const fetchExperiences = (fetchExperiencesAction: Function) => {
+  Axios.get(URLS.BASE_URL + URLS.EXPERIENCE)
+    .then((res) => {
+      if (res.status === 200) {
+        // If success
+        fetchExperiencesAction(res.data);
+      }
+    })
+    .catch((err) => {
+      // if failure
+      console.error(err.response);
+
+      // general error message
+      toast.error(<WithTrans keyword="fetchError" />);
     });
 };

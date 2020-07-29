@@ -1,10 +1,10 @@
 import {
   CLEAR_CURRENT_USER_INFO,
-  SET_CURRENT_USER_INFO,
-} from "../constants/actionTypes";
+  SET_CURRENT_USER_INFO
+} from "../constants/userInfoActionTypes";
 
 const INITIAL_STATE = {
-  id: NaN,
+  id: null,
   firstName: "",
   lastName: "",
   username: "",

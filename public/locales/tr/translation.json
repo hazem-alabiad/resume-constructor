@@ -29,11 +29,13 @@
 		"company": {
 			"placeholder": "Örneğin. Google"
 		},
+		"delete": "Deneyimi sil",
 		"description": {
 			"placeholder": "- Takım Lideri, TGU projesi.\n- Çözüm Mimarı, bulut hizmetleri."
 		},
 		"edit": "Deneyimi düzenle",
 		"failure": "Yeni bir deneyim eklenirken bir hata oluştu!",
+		"fetchError": "Deneyimleriniz getirilirken bir sorun oluştu!",
 		"role": {
 			"placeholder": "Örneğin. Yazılım Mühendisi"
 		},
@@ -42,7 +44,7 @@
 	"login": {
 		"failure": "Giriş yapılırken bir hata oluştu!",
 		"invalid": "Kullanıcı adı veya şifre yanlış!",
-		"success": "Tekrar hoşgeldiniz, '{{username}}'!"
+		"success": "Tekrar hoşgeldiniz, {{username}}!"
 	},
 	"redirectToLogin": "Giriş sayfasına yönlendiriliyorsunuz ...",
 	"register": {

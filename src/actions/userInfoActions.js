@@ -1,7 +1,7 @@
 import {
   SET_CURRENT_USER_INFO,
   CLEAR_CURRENT_USER_INFO,
-} from "constants/actionTypes";
+} from "constants/userInfoActionTypes";
 
 export const setCurrentUserInfo = (userInfo) => ({
   type: SET_CURRENT_USER_INFO,

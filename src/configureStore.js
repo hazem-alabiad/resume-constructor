@@ -3,6 +3,7 @@ import {
   loadPersistState,
   persistState,
 } from "helpers/localStorageHelpers";
+import experiencesReducer from "reducers/experiencesReducer";
 import userInfoReducer from "reducers/userInfoReducer";
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { reducer as formReducer } from "redux-form";
@@ -13,6 +14,7 @@ const persistentState = loadPersistState();
 const rootReducer = combineReducers({
   form: formReducer,
   userInfo: userInfoReducer,
+  experiences: experiencesReducer,
 });
 
 const composeEnhancers =

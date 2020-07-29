@@ -1,4 +1,7 @@
+import WithTrans from "components/WithTrans";
+import { ROUTE_NAMES } from "constants/routeNames";
 import React from "react";
+import { Button, Popup } from "semantic-ui-react";
 
 export const DESIGN_SYSTEM = {
   // #############################################
@@ -29,7 +32,32 @@ export const DESIGN_SYSTEM = {
 
   // ##########   Experience Styling   ###########
   experienceRoleStyle: (str: String): HTMLDivElement => {
-    return <div style={{ color: "black", fontWeight: "bold" }}>{str}</div>;
+    return (
+      <div style={{ color: "black", fontWeight: "bold" }}>
+        {str}
+        {/* If edit profile page show `edit` and `delete` buttons else, hide them */}
+        {window.location.pathname !== ROUTE_NAMES.editProfile ? (
+          <></>
+        ) : (
+          <Button.Group size="mini">
+            <Popup
+              content={<WithTrans keyword={"experience.edit"} />}
+              trigger={
+                <Button
+                  icon="edit outline"
+                  className="ml-5"
+                  color="vk"
+                ></Button>
+              }
+            />
+            <Popup
+              content={<WithTrans keyword={"experience.delete"} />}
+              trigger={<Button icon="delete" color="red"></Button>}
+            />
+          </Button.Group>
+        )}
+      </div>
+    );
   },
 
   experienceCompanyStyle: (str: String): HTMLDivElement => {
