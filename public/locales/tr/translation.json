@@ -5,8 +5,10 @@
 	"Company": "Şirket",
 	"Connections": "Bağlantılar",
 	"Description": "Açıklama",
+	"Edit my profile": "Profilimi düzenle",
 	"Experience": "Deneyim",
 	"First Name": "İsim",
+	"Home": "Ana Sayfa",
 	"John": "Ali",
 	"Last Name": "Soyadı",
 	"Login": "Oturum aç",
@@ -36,6 +38,8 @@
 		"edit": "Deneyimi düzenle",
 		"failure": "Yeni bir deneyim eklenirken bir hata oluştu!",
 		"fetchError": "Deneyimleriniz getirilirken bir sorun oluştu!",
+		"howToAddExperiences": "Deneyim eklemek için yukarıdaki profilimi düzenlemeye gidebilirsiniz.",
+		"noExperience": "Henüz bir deneyim eklemediniz!",
 		"role": {
 			"placeholder": "Örneğin. Yazılım Mühendisi"
 		},

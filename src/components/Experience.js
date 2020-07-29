@@ -5,8 +5,9 @@ import { getRandomDate } from "helpers/strings";
 import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Divider, Grid, Icon, Placeholder } from "semantic-ui-react";
+import { Divider, Grid, Icon, Message, Placeholder } from "semantic-ui-react";
 import BackgroundSectionHeader from "./BackgroundSectionHeader";
+import WithTrans from "./WithTrans";
 
 // #################    Globals   #################
 const {
@@ -24,23 +25,26 @@ const mapDispatchToProps = (dispatch) => ({
   fetchExperiences: (experiences) =>
     dispatch(actions.fetchExperiences(experiences)),
   addExperience: (experience) => dispatch(actions.addExperience(experience)),
+  loadingExperiences: () => dispatch(actions.loadingExperiences()),
 });
 
 /**
  * #################   Main Component    #################
  * @typedef {object} Props
  * @property {Object} userInfo
- * @property {Object[]} experiences
  * @property {string} userInfo.token
+ * @property {Object[]} experiences
  * @property {Function} fetchExperiences
  * @property {Function} addExperience
+ * @property {Function} loadingExperiences
  * @extends {Component<Props>}
  */
 class Experience extends Component {
   // ###############   Life-Cycle Methods    ###############
   componentDidMount() {
+    this.props.loadingExperiences();
     // Load experiences by making an API call
-    fetchExperiences(this.props.fetchExperiences);
+    fetchExperiences(this.props.fetchExperiences, this.props.userInfo.token);
   }
 
   handleAddExperience = (values, reduxDevtoolCbFn, formProps) => {
@@ -57,7 +61,7 @@ class Experience extends Component {
 
   renderExperiences = () => {
     // If experiences not loaded yet, return a Loader
-    if (!this.props.experiences.length) {
+    if (this.props.experiences === null) {
       return (
         <Grid.Column>
           <Placeholder>
@@ -70,6 +74,17 @@ class Experience extends Component {
               <Placeholder.Line />
             </Placeholder.Paragraph>
           </Placeholder>
+        </Grid.Column>
+      );
+    } else if (!this.props.experiences.length) {
+      return (
+        <Grid.Column>
+          <Message info>
+            <h3 className="mb-2">
+              <WithTrans keyword="experience.noExperience" />
+            </h3>
+            <WithTrans keyword="experience.howToAddExperiences" />
+          </Message>
         </Grid.Column>
       );
     }

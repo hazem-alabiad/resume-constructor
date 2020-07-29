@@ -5,8 +5,10 @@
 	"Company": "Company",
 	"Connections": "Connections",
 	"Description": "Description",
+	"Edit my profile": "Edit my profile",
 	"Experience": "Experience",
 	"First Name": "First Name",
+	"Home": "Home",
 	"John": "John",
 	"Last Name": "Last Name",
 	"Login": "Login",
@@ -36,6 +38,8 @@
 		"edit": "Edit experience",
 		"failure": "There was an error during adding a new experience!",
 		"fetchError": "There was a problem during fetching your experiences!",
+		"howToAddExperiences": "You can go to edit my profile above to add experiences.",
+		"noExperience": "You have not added any experience yet!",
 		"role": {
 			"placeholder": "e.g. Software engineer"
 		},

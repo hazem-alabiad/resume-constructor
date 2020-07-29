@@ -23,9 +23,13 @@ export const isAuthenticated = (): Boolean => {
   return token ? true : false;
 };
 
-export const logout = (clearCurrentUserInfo: Function): void => {
+export const logout = (
+  clearCurrentUserInfo: Function,
+  clearExperiencesCache: Function
+): void => {
   localStorage.clear();
   clearCurrentUserInfo();
+  clearExperiencesCache();
   navigate(ROUTE_NAMES.login);
 };
 
@@ -38,11 +42,13 @@ export const persistState = (state: Object) => {
 };
 
 export const loadPersistState = () => {
-  try {
-    let persistState = getObject(STATE);
-    return persistState ? persistState : undefined;
-  } catch (err) {
-    console.error(err);
-    return undefined;
+  if (isAuthenticated()) {
+    try {
+      let persistState = getObject(STATE);
+      return persistState ? persistState : undefined;
+    } catch (err) {
+      console.error(err);
+      return undefined;
+    }
   }
 };

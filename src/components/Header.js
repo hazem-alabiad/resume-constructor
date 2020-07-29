@@ -7,7 +7,7 @@ import { Button, Flag, Icon, Menu } from "semantic-ui-react";
 import WithTrans from "./WithTrans";
 
 const Header = ({ logout }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <Menu size="mini" borderless>
@@ -24,11 +24,13 @@ const Header = ({ logout }) => {
       </Menu.Item>
       <Menu className="ml-auto" secondary>
         <Menu.Item>
-          <Button onClick={() => navigate(ROUTE_NAMES.home)}>Home</Button>
+          <Button onClick={() => navigate(ROUTE_NAMES.home)}>
+            {t("Home")}
+          </Button>
         </Menu.Item>
         <Menu.Item>
           <Button onClick={() => navigate(ROUTE_NAMES.editProfile)}>
-            Edit my profile
+            {t("Edit my profile")}
           </Button>
         </Menu.Item>
       </Menu>

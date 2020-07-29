@@ -9,12 +9,7 @@ import { toast } from "react-toastify";
 import * as URLS from "./urls";
 
 // #####################    Globals   #####################
-Axios.defaults.baseURL = URLS.BASE_URL;
-Axios.defaults.headers.common["Authorization"] = `Bearer ${getObject(
-  TOKEN_NAME
-)}`;
-Axios.defaults.headers.post["Content-Type"] = "application/json";
-Axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+const auth = () => ({ Authorization: `Bearer ${getObject(TOKEN_NAME)}` });
 
 // #####################    Methods   #####################
 export const signup = (
@@ -99,11 +94,15 @@ export const addExperience = (
   addExperienceAction: Function,
   onSubmitClose: Function
 ) => {
-  Axios.post(URLS.BASE_URL + URLS.EXPERIENCE, {
-    role,
-    company,
-    description,
-  })
+  Axios.post(
+    URLS.BASE_URL + URLS.EXPERIENCE,
+    {
+      role,
+      company,
+      description,
+    },
+    { headers: auth() }
+  )
     .then((res) => {
       if (res.status === 200) {
         // If success
@@ -123,8 +122,13 @@ export const addExperience = (
     });
 };
 
-export const fetchExperiences = (fetchExperiencesAction: Function) => {
-  Axios.get(URLS.BASE_URL + URLS.EXPERIENCE)
+export const fetchExperiences = (
+  fetchExperiencesAction: Function,
+  token: String
+) => {
+  Axios.get(URLS.BASE_URL + URLS.EXPERIENCE, {
+    headers: auth(),
+  })
     .then((res) => {
       if (res.status === 200) {
         // If success

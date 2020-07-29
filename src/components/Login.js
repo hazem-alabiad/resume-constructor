@@ -12,7 +12,7 @@ import LanguageSelector from "./LanguageSelector";
 // ###################    Globals    ##################
 
 // ###############    Main Component    ###############
-const LoginForm = ({ handleSubmit, submitting, invalid }) => {
+const LoginForm = ({ handleSubmit, submitting, invalid, submitSucceeded }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -30,6 +30,7 @@ const LoginForm = ({ handleSubmit, submitting, invalid }) => {
               handleSubmit={handleSubmit}
               invalid={invalid}
               submitting={submitting}
+              submitSucceeded={submitSucceeded}
             />
             <Message attached="bottom" warning className="text-center">
               {t("New to Oplog")}

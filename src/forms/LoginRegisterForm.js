@@ -1,3 +1,4 @@
+import { ROUTE_NAMES } from "constants/routeNames";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Field } from "redux-form";
@@ -19,8 +20,21 @@ import renderField from "./renderField";
  * @param {boolean} props.invalid
  * @param {string} props.formName
  */
-const LoginRegisterForm = ({ handleSubmit, submitting, invalid, formName }) => {
+const LoginRegisterForm = ({
+  handleSubmit,
+  submitting,
+  invalid,
+  submitSucceeded,
+  formName,
+}) => {
   const { t } = useTranslation();
+  const isDisabled = () => {
+    if (invalid) return true;
+    if (window.location.pathname !== ROUTE_NAMES.login && submitSucceeded)
+      return true;
+    return false;
+  };
+
   return (
     <>
       <Message attached="top">
@@ -79,7 +93,8 @@ const LoginRegisterForm = ({ handleSubmit, submitting, invalid, formName }) => {
             className="mt-5"
             fluid
             size="large"
-            disabled={submitting || invalid}
+            loading={submitting}
+            disabled={isDisabled()}
           >
             {t(formName)}
           </Button>

@@ -1,7 +1,8 @@
 import { Router } from "@reach/router";
+import { clearExperiencesCache } from "actions/experienceActions";
 import {
   clearCurrentUserInfo,
-  setCurrentUserInfo
+  setCurrentUserInfo,
 } from "actions/userInfoActions";
 import { login, signup } from "api/apis";
 import { logout } from "helpers/localStorageHelpers";
@@ -20,6 +21,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUserInfo: (userInfo) => dispatch(setCurrentUserInfo(userInfo)),
   clearCurrentUserInfo: () => dispatch(clearCurrentUserInfo()),
+  clearExperiencesCache: () => dispatch(clearExperiencesCache()),
 });
 
 /**
@@ -27,6 +29,7 @@ const mapDispatchToProps = (dispatch) => ({
  * @typedef {object} Props
  * @property {Function} setCurrentUserInfo
  * @property {Function} clearCurrentUserInfo
+ * @property {Function} clearExperiencesCache
  * @property {Object} userInfo
  * @property {string} userInfo.token
  * @extends {Component<Props>}
@@ -37,12 +40,13 @@ class Main extends Component {
     signup(username, password, firstName, lastName);
   };
 
-  handleLoginSubmit = (values) => {
+  handleLoginSubmit = (values, reduxDevtoolCbFn, formProps) => {
     const { username, password } = values;
     login(username, password, this.props.setCurrentUserInfo);
   };
 
-  onLogout = () => logout(this.props.clearCurrentUserInfo);
+  onLogout = () =>
+    logout(this.props.clearCurrentUserInfo, this.props.clearExperiencesCache);
 
   render() {
     return (

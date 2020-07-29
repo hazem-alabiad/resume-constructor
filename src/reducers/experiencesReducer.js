@@ -1,7 +1,9 @@
 import {
   ADD_EXPERIENCE,
+  CLEAR_EXPERIENCES_CACHE,
   DELETE_EXPERIENCE,
   FETCH_EXPERIENCES,
+  LOADING_EXPERIENCES,
 } from "constants/experienceActionTypes";
 import _ from "lodash";
 
@@ -45,10 +47,14 @@ const experiencesReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_EXPERIENCES:
       return [...action.payload];
+    case LOADING_EXPERIENCES:
+      return null;
     case ADD_EXPERIENCE:
       return [...state, experienceReducer(undefined, action)];
     case DELETE_EXPERIENCE:
       return _.filter(state, (experience) => experience.id !== action.payload);
+    case CLEAR_EXPERIENCES_CACHE:
+      return [];
     default:
       return state;
   }
