@@ -1,5 +1,5 @@
 import * as actions from "actions/experienceActions";
-import { addExperience, fetchExperiences } from "api/apis";
+import { apiAddExperience, apiFetchExperiences } from "api/apis";
 import { DESIGN_SYSTEM } from "designSystem";
 import { getRandomDate } from "helpers/strings";
 import _ from "lodash";
@@ -26,6 +26,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(actions.fetchExperiences(experiences)),
   addExperience: (experience) => dispatch(actions.addExperience(experience)),
   loadingExperiences: () => dispatch(actions.loadingExperiences()),
+  deleteExperience: (experienceId) =>
+    dispatch(actions.deleteExperience(experienceId)),
 });
 
 /**
@@ -37,6 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
  * @property {Function} fetchExperiences
  * @property {Function} addExperience
  * @property {Function} loadingExperiences
+ * @property {Function} deleteExperience
  * @extends {Component<Props>}
  */
 class Experience extends Component {
@@ -44,17 +47,17 @@ class Experience extends Component {
   componentDidMount() {
     this.props.loadingExperiences();
     // Load experiences by making an API call
-    fetchExperiences(this.props.fetchExperiences, this.props.userInfo.token);
+    apiFetchExperiences(this.props.fetchExperiences, this.props.userInfo.token);
   }
 
   handleAddExperience = (values, reduxDevtoolCbFn, formProps) => {
     const { role, company, description } = values;
     const { onSubmitClose } = formProps;
-    addExperience(
+    apiAddExperience(
       role,
       company,
       description,
-      actions.addExperience,
+      this.props.addExperience,
       onSubmitClose
     );
   };
@@ -98,11 +101,15 @@ class Experience extends Component {
        * @param {string} experience.company
        * @param {string} experience.description
        */
-      (experience) => {
+      (experience, id) => {
         return (
-          <Grid key={experience.id}>
+          <Grid key={id}>
             <Grid.Column mobile="12" tablet="13" computer="14">
-              {experienceRoleStyle(experience.role)}
+              {experienceRoleStyle(
+                experience.role,
+                experience.id,
+                this.props.deleteExperience
+              )}
               {experienceCompanyStyle(experience.company)}
               {experienceDateStyle(getRandomDate())}
               <p className="mt-3">{experience.description}</p>

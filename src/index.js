@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import "react-toastify/dist/ReactToastify.css";
 import "semantic-ui-css/semantic.min.css";
 import { Grid, Loader } from "semantic-ui-react";
 import App from "./App";
@@ -9,7 +10,6 @@ import App from "./App";
 import "./i18n";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import "react-toastify/dist/ReactToastify.css";
 
 const loading = (
   <Grid container centered className="mt-5" verticalAlign="middle">

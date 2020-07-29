@@ -9,10 +9,14 @@ import { toast } from "react-toastify";
 import * as URLS from "./urls";
 
 // #####################    Globals   #####################
-const auth = () => ({ Authorization: `Bearer ${getObject(TOKEN_NAME)}` });
+const headers = () => ({
+  Authorization: `Bearer ${getObject(TOKEN_NAME)}`,
+  Accept: "application/json",
+  "Content-Type": "application/json",
+});
 
 // #####################    Methods   #####################
-export const signup = (
+export const apiSignup = (
   username: String,
   password: String,
   firstName: String = "",
@@ -50,7 +54,7 @@ export const signup = (
     });
 };
 
-export const login = (
+export const apiLogin = (
   username: String,
   password: String,
   setCurrentUserInfo: Function
@@ -87,13 +91,14 @@ export const login = (
     });
 };
 
-export const addExperience = (
+export const apiAddExperience = (
   role: String,
   company: String,
   description: String,
   addExperienceAction: Function,
   onSubmitClose: Function
 ) => {
+  console.log(addExperienceAction);
   Axios.post(
     URLS.BASE_URL + URLS.EXPERIENCE,
     {
@@ -101,7 +106,7 @@ export const addExperience = (
       company,
       description,
     },
-    { headers: auth() }
+    { headers: headers() }
   )
     .then((res) => {
       if (res.status === 200) {
@@ -122,12 +127,12 @@ export const addExperience = (
     });
 };
 
-export const fetchExperiences = (
+export const apiFetchExperiences = (
   fetchExperiencesAction: Function,
   token: String
 ) => {
   Axios.get(URLS.BASE_URL + URLS.EXPERIENCE, {
-    headers: auth(),
+    headers: headers(),
   })
     .then((res) => {
       if (res.status === 200) {
@@ -141,5 +146,33 @@ export const fetchExperiences = (
 
       // general error message
       toast.error(<WithTrans keyword="fetchError" />);
+    });
+};
+
+export const apiDeleteExperience = (
+  experienceId: Number,
+  closeOnDelete: Function,
+  deleteExperienceAction: Function
+) => {
+  Axios.delete(URLS.BASE_URL + URLS.EXPERIENCE, {
+    data: {
+      id: experienceId,
+    },
+    headers: headers(),
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        // If success
+        closeOnDelete();
+        deleteExperienceAction(experienceId);
+        toast.success(<WithTrans keyword="experience.deleteSuccess" />);
+      }
+    })
+    .catch((err) => {
+      // if failure
+      console.error(err.response);
+
+      // general error message
+      toast.error(<WithTrans keyword="experience.deleteFailure" />);
     });
 };

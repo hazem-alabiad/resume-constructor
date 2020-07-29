@@ -4,6 +4,8 @@
 	"Cancel": "İptal et",
 	"Company": "Şirket",
 	"Connections": "Bağlantılar",
+	"Delete": "Sil",
+	"Deletion": "Silme",
 	"Description": "Açıklama",
 	"Edit my profile": "Profilimi düzenle",
 	"Experience": "Deneyim",
@@ -26,12 +28,15 @@
 	"Submit": "Gönder",
 	"Surname": "Soyadı",
 	"Username": "Kullanıcı adı",
+	"deletionConfirm": "Emin misiniz?",
 	"experience": {
 		"add": "Yeni bir deneyim ekleyin",
 		"company": {
 			"placeholder": "Örneğin. Google"
 		},
 		"delete": "Deneyimi sil",
+		"deleteFailure": "Deneyim silinirken bir hata oluştu!",
+		"deleteSuccess": "Bir deneyimi başarıyla kaldırdınız!",
 		"description": {
 			"placeholder": "- Takım Lideri, TGU projesi.\n- Çözüm Mimarı, bulut hizmetleri."
 		},

@@ -1,3 +1,4 @@
+import DeleteConfirmationModal from "components/DeleteConfirmationModal";
 import WithTrans from "components/WithTrans";
 import { ROUTE_NAMES } from "constants/routeNames";
 import React from "react";
@@ -31,7 +32,11 @@ export const DESIGN_SYSTEM = {
   },
 
   // ##########   Experience Styling   ###########
-  experienceRoleStyle: (str: String): HTMLDivElement => {
+  experienceRoleStyle: (
+    str: String,
+    experienceId: String,
+    deleteExperienceAction: Function
+  ): HTMLDivElement => {
     return (
       <div style={{ color: "black", fontWeight: "bold" }}>
         {str}
@@ -50,9 +55,9 @@ export const DESIGN_SYSTEM = {
                 ></Button>
               }
             />
-            <Popup
-              content={<WithTrans keyword={"experience.delete"} />}
-              trigger={<Button icon="delete" color="red"></Button>}
+            <DeleteConfirmationModal
+              itemId={experienceId}
+              deleteExperienceAction={deleteExperienceAction}
             />
           </Button.Group>
         )}

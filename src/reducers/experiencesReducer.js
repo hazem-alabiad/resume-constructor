@@ -22,9 +22,10 @@ import _ from "lodash";
  * @returns {object}
  */
 const experienceReducer = (state = {}, action) => {
+  console.log({ ...action.payload });
   switch (action.type) {
     case ADD_EXPERIENCE:
-      return { ...action.payload.experience };
+      return { ...action.payload };
     default:
       return state;
   }

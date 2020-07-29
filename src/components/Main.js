@@ -4,7 +4,7 @@ import {
   clearCurrentUserInfo,
   setCurrentUserInfo,
 } from "actions/userInfoActions";
-import { login, signup } from "api/apis";
+import { apiLogin, apiSignup } from "api/apis";
 import { logout } from "helpers/localStorageHelpers";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -37,12 +37,12 @@ const mapDispatchToProps = (dispatch) => ({
 class Main extends Component {
   handleSignupSubmit = (values) => {
     const { username, password, firstName, lastName } = values;
-    signup(username, password, firstName, lastName);
+    apiSignup(username, password, firstName, lastName);
   };
 
   handleLoginSubmit = (values, reduxDevtoolCbFn, formProps) => {
     const { username, password } = values;
-    login(username, password, this.props.setCurrentUserInfo);
+    apiLogin(username, password, this.props.setCurrentUserInfo);
   };
 
   onLogout = () =>
