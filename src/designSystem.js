@@ -45,16 +45,7 @@ export const DESIGN_SYSTEM = {
           <></>
         ) : (
           <Button.Group size="mini">
-            <Popup
-              content={<WithTrans keyword={"experience.edit"} />}
-              trigger={
-                <Button
-                  icon="edit outline"
-                  className="ml-5"
-                  color="vk"
-                ></Button>
-              }
-            />
+            <Button icon="edit outline" className="ml-5" color="vk"></Button>
             <DeleteConfirmationModal
               itemId={experienceId}
               deleteExperienceAction={deleteExperienceAction}

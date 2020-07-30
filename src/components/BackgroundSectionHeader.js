@@ -1,9 +1,9 @@
+import { ROUTE_NAMES } from "constants/routeNames";
 import React, { useState } from "react";
-import { Button, Icon, Popup } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import { ActionModal } from "./ActionModal";
 import AddExperienceForm from "./AddExperience";
 import WithTrans from "./WithTrans";
-import { ROUTE_NAMES } from "constants/routeNames";
 
 // #####################   Globals    ######################
 
@@ -28,14 +28,9 @@ const BackgroundSectionHeader = ({
         <></>
       ) : (
         <span className="ml-5">
-          <Popup
-            content={<WithTrans keyword={sectionAddHeader} />}
-            trigger={
-              <Button icon size="mini" color="teal" onClick={toggle}>
-                <Icon name="plus" />
-              </Button>
-            }
-          />
+          <Button icon size="mini" color="teal" onClick={toggle}>
+            <Icon name="plus" />
+          </Button>
         </span>
       )}
       <ActionModal

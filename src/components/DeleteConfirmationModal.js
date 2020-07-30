@@ -1,8 +1,7 @@
 import { apiDeleteExperience } from "api/apis";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Confirm, Popup } from "semantic-ui-react";
-import WithTrans from "./WithTrans";
+import { Button, Confirm } from "semantic-ui-react";
 
 /**
  * #################   Main Component    #################
@@ -17,17 +16,14 @@ const DeleteConfirmationModal = ({ itemId, deleteExperienceAction }) => {
 
   return (
     <>
-      <Popup
-        content={<WithTrans keyword={"experience.delete"} />}
-        trigger={<Button icon="delete" color="red" onClick={toggle}></Button>}
-      />
+      <Button icon="delete" color="red" onClick={toggle}></Button>
       <Confirm
         open={isOpen}
         closeIcon
         header={t("Deletion")}
         content={t("deletionConfirm")}
         onCancel={toggle}
-        confirmButton={t("Delete")}
+        confirmButton={t("experience.delete")}
         onConfirm={() =>
           apiDeleteExperience(
             itemId,
