@@ -8,12 +8,15 @@ import {
   Header,
   Image,
   Message,
-  Segment
+  Segment,
 } from "semantic-ui-react";
 import renderField from "./renderField";
 
+// ######################   Globals    #######################
+const lower = (value) => value && value.toLowerCase();
+
 /**
- *
+ * ####################   Main Component    ####################
  * @param {object} props
  * @param {Function} props.handleSubmit
  * @param {boolean} props.submitting
@@ -76,6 +79,7 @@ const LoginRegisterForm = ({
               label={t("Username")}
               type="text"
               placeholder="admin321"
+              normalize={lower}
             />
           </Form.Field>
           <Form.Field required>
