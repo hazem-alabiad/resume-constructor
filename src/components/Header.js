@@ -12,13 +12,17 @@ const Header = ({ logout }) => {
   return (
     <Menu size="mini" borderless stackable>
       <Menu.Item>
-        <Image src="/favicon.jpeg" size="mini" circular />
+        <Image src="/favicon.jpeg" size="mini" />
       </Menu.Item>
       <Menu.Item>
-        <Button onClick={() => navigate(ROUTE_NAMES.home)}>{t("Home")}</Button>
+        <Button onClick={() => navigate(ROUTE_NAMES.home)}>
+          <Icon name="home" />
+          {t("Home")}
+        </Button>
       </Menu.Item>
       <Menu.Item>
         <Button onClick={() => navigate(ROUTE_NAMES.editProfile)}>
+          <Icon name="edit" />
           {t("Edit my profile")}
         </Button>
       </Menu.Item>
