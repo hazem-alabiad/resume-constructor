@@ -1,8 +1,8 @@
-import DeleteConfirmationModal from "components/DeleteConfirmationModal";
-import WithTrans from "components/WithTrans";
+import DeleteExperienceModal from "components/DeleteExperienceModal";
+import EditExperienceModal from "components/EditExperienceModal";
 import { ROUTE_NAMES } from "constants/routeNames";
 import React from "react";
-import { Button, Popup } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 export const DESIGN_SYSTEM = {
   // #############################################
@@ -34,8 +34,10 @@ export const DESIGN_SYSTEM = {
   // ##########   Experience Styling   ###########
   experienceRoleStyle: (
     str: String,
-    experienceId: String,
-    deleteExperienceAction: Function
+    experience: Object,
+    deleteExperienceAction: Function,
+    setExperienceBeingEditedAction: Function,
+    handleEditExperience: Function
   ): HTMLDivElement => {
     return (
       <div style={{ color: "black", fontWeight: "bold" }}>
@@ -45,9 +47,13 @@ export const DESIGN_SYSTEM = {
           <></>
         ) : (
           <Button.Group size="mini">
-            <Button icon="edit outline" className="ml-5" color="vk"></Button>
-            <DeleteConfirmationModal
-              itemId={experienceId}
+            <EditExperienceModal
+              experience={experience}
+              setExperienceBeingEdited={setExperienceBeingEditedAction}
+              handleEditExperience={handleEditExperience}
+            />
+            <DeleteExperienceModal
+              itemId={experience.id}
               deleteExperienceAction={deleteExperienceAction}
             />
           </Button.Group>

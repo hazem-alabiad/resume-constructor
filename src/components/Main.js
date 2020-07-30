@@ -1,9 +1,5 @@
 import { Router } from "@reach/router";
-import { clearExperiencesCache } from "actions/experienceActions";
-import {
-  clearCurrentUserInfo,
-  setCurrentUserInfo,
-} from "actions/userInfoActions";
+import * as userInfoActions from "actions/userInfoActions";
 import { apiLogin, apiSignup } from "api/apis";
 import { logout } from "helpers/localStorageHelpers";
 import React, { Component } from "react";
@@ -19,17 +15,16 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentUserInfo: (userInfo) => dispatch(setCurrentUserInfo(userInfo)),
-  clearCurrentUserInfo: () => dispatch(clearCurrentUserInfo()),
-  clearExperiencesCache: () => dispatch(clearExperiencesCache()),
+  setCurrentUserInfo: (userInfo) =>
+    dispatch(userInfoActions.setCurrentUserInfo(userInfo)),
+  userLogout: () => dispatch(userInfoActions.userLogout()),
 });
 
 /**
  * ################   Main Component    ################
  * @typedef {object} Props
  * @property {Function} setCurrentUserInfo
- * @property {Function} clearCurrentUserInfo
- * @property {Function} clearExperiencesCache
+ * @property {Function} userLogout
  * @property {Object} userInfo
  * @property {string} userInfo.token
  * @extends {Component<Props>}
@@ -45,8 +40,7 @@ class Main extends Component {
     apiLogin(username, password, this.props.setCurrentUserInfo);
   };
 
-  onLogout = () =>
-    logout(this.props.clearCurrentUserInfo, this.props.clearExperiencesCache);
+  onLogout = () => logout(this.props.userLogout);
 
   render() {
     return (

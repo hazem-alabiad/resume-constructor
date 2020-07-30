@@ -1,16 +1,7 @@
 import {
-  CLEAR_CURRENT_USER_INFO,
-  SET_CURRENT_USER_INFO
+  SET_CURRENT_USER_INFO,
+  USER_LOGOUT,
 } from "../constants/userInfoActionTypes";
-
-const INITIAL_STATE = {
-  id: null,
-  firstName: "",
-  lastName: "",
-  username: "",
-  password: "",
-  token: "",
-};
 
 /**
  *
@@ -22,12 +13,12 @@ const INITIAL_STATE = {
  * @param {string} action.payload.password
  * @returns {object}
  */
-const userInfoReducer = (state = INITIAL_STATE, action) => {
+const userInfoReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_CURRENT_USER_INFO:
       return { ...state, ...action.payload };
-    case CLEAR_CURRENT_USER_INFO:
-      return INITIAL_STATE;
+    case USER_LOGOUT:
+      return {};
     default:
       return state;
   }

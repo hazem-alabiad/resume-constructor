@@ -1,7 +1,9 @@
+import addEditExperienceValidate from "forms/addEditExperienceValidate";
 import { FORM_NAMES } from "forms/formNames";
 import renderField from "forms/renderField";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { Button, Form, Icon } from "semantic-ui-react";
 import WithTrans from "./WithTrans";
@@ -14,14 +16,33 @@ import WithTrans from "./WithTrans";
  * @param {boolean} props.submitting
  * @param {boolean} props.invalid
  * @param {string} props.formName
+ * @param {object} props.experience
+ * @param {string} props.experience.role
+ * @param {string} props.experience.company
+ * @param {string} props.experience.description
  */
-const _AddExperienceForm = ({ handleSubmit, submitting, invalid }) => {
+const _editExperienceForm = (props) => {
+  const {
+    anyTouched,
+    handleSubmit,
+    submitting,
+    invalid,
+    submitSucceeded,
+    submitFailed,
+  } = props;
   const { t } = useTranslation();
+
+  const isDisabled = () => {
+    if (invalid || !anyTouched) return true;
+    if (!submitFailed && submitSucceeded) return true;
+    return false;
+  };
 
   return (
     <Form size="large" onSubmit={handleSubmit}>
       <Form.Field required>
         <Field
+          value="Role"
           name="role"
           component={renderField}
           label={t("Role")}
@@ -54,7 +75,8 @@ const _AddExperienceForm = ({ handleSubmit, submitting, invalid }) => {
         className="mt-5"
         size="large"
         fluid
-        disabled={submitting || invalid}
+        loading={submitting}
+        disabled={isDisabled()}
       >
         <Icon name="checkmark" /> {<WithTrans keyword="Submit" />}
       </Button>
@@ -62,9 +84,16 @@ const _AddExperienceForm = ({ handleSubmit, submitting, invalid }) => {
   );
 };
 
-// ###############    Main Component    ###############
-const AddExperienceForm = reduxForm({
-  form: FORM_NAMES.addExperience,
-})(_AddExperienceForm);
+const mapStateToProps = (state) => ({
+  initialValues: state.experienceBeingEdited,
+});
 
-export default AddExperienceForm;
+// ###############    Main Component    ###############
+const EditExperienceForm = reduxForm({
+  form: FORM_NAMES.editExperience,
+  validate: addEditExperienceValidate,
+  enableReinitialize: true,
+  touchOnChange: true,
+})(_editExperienceForm);
+
+export default connect(mapStateToProps)(EditExperienceForm);

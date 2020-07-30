@@ -1,6 +1,5 @@
 import {
   ADD_EXPERIENCE,
-  CLEAR_EXPERIENCES_CACHE,
   DELETE_EXPERIENCE,
   EDIT_EXPERIENCE,
   FETCH_EXPERIENCES,
@@ -29,8 +28,4 @@ export const editExperience = (updatedExperience: Object): Object => ({
 export const deleteExperience = (experienceId: Number): Object => ({
   type: DELETE_EXPERIENCE,
   payload: experienceId,
-});
-
-export const clearExperiencesCache = (): Object => ({
-  type: CLEAR_EXPERIENCES_CACHE,
 });

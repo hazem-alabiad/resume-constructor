@@ -1,7 +1,7 @@
 import { ROUTE_NAMES } from "constants/routeNames";
 import React, { useState } from "react";
 import { Button, Icon } from "semantic-ui-react";
-import { ActionModal } from "./ActionModal";
+import { AddEditModal } from "./AddEditModal";
 import AddExperienceForm from "./AddExperience";
 import WithTrans from "./WithTrans";
 
@@ -33,7 +33,7 @@ const BackgroundSectionHeader = ({
           </Button>
         </span>
       )}
-      <ActionModal
+      <AddEditModal
         isOpen={isOpen}
         toggle={toggle}
         header={<WithTrans keyword={sectionAddHeader} />}
@@ -41,9 +41,9 @@ const BackgroundSectionHeader = ({
       >
         <AddExperienceForm
           onSubmit={onSubmit}
-          onSubmitClose={() => setIsOpen(false)}
+          closeOnSubmit={() => setIsOpen(false)}
         />
-      </ActionModal>
+      </AddEditModal>
     </div>
   );
 };

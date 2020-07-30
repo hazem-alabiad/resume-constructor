@@ -1,5 +1,10 @@
-import * as actions from "actions/experienceActions";
-import { apiAddExperience, apiFetchExperiences } from "api/apis";
+import * as experienceActions from "actions/experienceActions";
+import * as setExperienceBeingEditedActions from "actions/experienceBeingEditedActions";
+import {
+  apiAddExperience,
+
+  apiEditExperience, apiFetchExperiences
+} from "api/apis";
 import { DESIGN_SYSTEM } from "designSystem";
 import { getRandomDate } from "helpers/strings";
 import _ from "lodash";
@@ -23,11 +28,18 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchExperiences: (experiences) =>
-    dispatch(actions.fetchExperiences(experiences)),
-  addExperience: (experience) => dispatch(actions.addExperience(experience)),
-  loadingExperiences: () => dispatch(actions.loadingExperiences()),
+    dispatch(experienceActions.fetchExperiences(experiences)),
+  addExperience: (experience) =>
+    dispatch(experienceActions.addExperience(experience)),
+  loadingExperiences: () => dispatch(experienceActions.loadingExperiences()),
   deleteExperience: (experienceId) =>
-    dispatch(actions.deleteExperience(experienceId)),
+    dispatch(experienceActions.deleteExperience(experienceId)),
+  setExperienceBeingEdited: (experience) =>
+    dispatch(
+      setExperienceBeingEditedActions.setExperienceBeingEdited(experience)
+    ),
+  editExperience: (updatedExperience) =>
+    dispatch(experienceActions.editExperience(updatedExperience)),
 });
 
 /**
@@ -40,6 +52,7 @@ const mapDispatchToProps = (dispatch) => ({
  * @property {Function} addExperience
  * @property {Function} loadingExperiences
  * @property {Function} deleteExperience
+ * @property {Function} editExperience
  * @extends {Component<Props>}
  */
 class Experience extends Component {
@@ -52,14 +65,19 @@ class Experience extends Component {
 
   handleAddExperience = (values, reduxDevtoolCbFn, formProps) => {
     const { role, company, description } = values;
-    const { onSubmitClose } = formProps;
+    const { closeOnSubmit } = formProps;
     apiAddExperience(
       role,
       company,
       description,
       this.props.addExperience,
-      onSubmitClose
+      closeOnSubmit
     );
+  };
+
+  handleEditExperience = (values, reduxDevtoolCbFn, formProps) => {
+    const { closeOnSubmit } = formProps;
+    apiEditExperience(values, closeOnSubmit, this.props.editExperience);
   };
 
   renderExperiences = () => {
@@ -107,16 +125,20 @@ class Experience extends Component {
             <Grid.Column mobile="12" tablet="13" computer="14">
               {experienceRoleStyle(
                 experience.role,
-                experience.id,
-                this.props.deleteExperience
+                experience,
+                this.props.deleteExperience,
+                this.props.setExperienceBeingEdited,
+                this.handleEditExperience
               )}
               {experienceCompanyStyle(experience.company)}
               {experienceDateStyle(getRandomDate())}
-              <p className="mt-3">{experience.description}</p>
+              <p className="mt-3" style={{ whiteSpace: "pre" }}>
+                {experience.description}
+              </p>
             </Grid.Column>
             <Grid.Column mobile="4" tablet="3" computer="2">
               <Icon
-                name={experience.company.toLowerCase()}
+                name={experience.company && experience.company.toLowerCase()}
                 floated="right"
                 size="huge"
               />

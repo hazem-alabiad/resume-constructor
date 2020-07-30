@@ -9,7 +9,7 @@ import { Button, Confirm } from "semantic-ui-react";
  * @typedef {number} Props.experienceId
  * @extends {Component<Props>}
  */
-const DeleteConfirmationModal = ({ itemId, deleteExperienceAction }) => {
+const DeleteExperienceModal = ({ itemId, deleteExperienceAction }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
   const toggle = () => setIsOpen(!isOpen);
@@ -36,4 +36,4 @@ const DeleteConfirmationModal = ({ itemId, deleteExperienceAction }) => {
   );
 };
 
-export default DeleteConfirmationModal;
+export default DeleteExperienceModal;

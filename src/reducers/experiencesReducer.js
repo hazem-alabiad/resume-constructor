@@ -1,10 +1,11 @@
 import {
   ADD_EXPERIENCE,
-  CLEAR_EXPERIENCES_CACHE,
   DELETE_EXPERIENCE,
+  EDIT_EXPERIENCE,
   FETCH_EXPERIENCES,
-  LOADING_EXPERIENCES,
+  LOADING_EXPERIENCES
 } from "constants/experienceActionTypes";
+import { USER_LOGOUT } from "constants/userInfoActionTypes";
 import _ from "lodash";
 
 /**
@@ -14,18 +15,18 @@ import _ from "lodash";
  * @param {object} action
  * @param {string} action.type
  * @param {object} action.payload
- * @param {object} action.payload.experience
- * @param {number} action.payload.experience.id
- * @param {string} action.payload.experience.role
- * @param {string} action.payload.experience.company
- * @param {string} action.payload.experience.description
+ * @param {number} action.payload.id
+ * @param {string} action.payload.role
+ * @param {string} action.payload.company
+ * @param {string} action.payload.description
  * @returns {object}
  */
 const experienceReducer = (state = {}, action) => {
-  console.log({ ...action.payload });
   switch (action.type) {
     case ADD_EXPERIENCE:
       return { ...action.payload };
+    case EDIT_EXPERIENCE:
+      return state.id === action.payload.id ? { ...action.payload } : state;
     default:
       return state;
   }
@@ -54,7 +55,11 @@ const experiencesReducer = (state = [], action) => {
       return [...state, experienceReducer(undefined, action)];
     case DELETE_EXPERIENCE:
       return _.filter(state, (experience) => experience.id !== action.payload);
-    case CLEAR_EXPERIENCES_CACHE:
+    case EDIT_EXPERIENCE:
+      return _.map(state, (experience) =>
+        experienceReducer(experience, action)
+      );
+    case USER_LOGOUT:
       return [];
     default:
       return state;

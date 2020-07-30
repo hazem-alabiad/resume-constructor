@@ -176,3 +176,34 @@ export const apiDeleteExperience = (
       toast.error(<WithTrans keyword="experience.deleteFailure" />);
     });
 };
+
+export const apiEditExperience = (
+  experience: Object,
+  closeOnSubmit: Function,
+  editExperienceAction: Function
+) => {
+  Axios.put(
+    URLS.BASE_URL + URLS.EXPERIENCE,
+    {
+      ...experience,
+    },
+    {
+      headers: headers(),
+    }
+  )
+    .then((res) => {
+      if (res.status === 200) {
+        // If success
+        closeOnSubmit();
+        editExperienceAction(experience);
+        toast.success(<WithTrans keyword="experience.editSuccess" />);
+      }
+    })
+    .catch((err) => {
+      // if failure
+      console.error(err.response);
+
+      // general error message
+      toast.error(<WithTrans keyword="experience.editFailure" />);
+    });
+};

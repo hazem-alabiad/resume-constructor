@@ -8,7 +8,6 @@ const renderField = ({
   meta: { touched, error, warning },
   placeholder,
 }) => {
-  console.log({...input});
   if (type === "textarea") {
     return (
       <>

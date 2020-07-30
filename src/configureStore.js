@@ -3,6 +3,7 @@ import {
   loadPersistState,
   persistState,
 } from "helpers/localStorageHelpers";
+import experienceBeingEditedReducer from "reducers/experiencesBeingEditedReducer";
 import experiencesReducer from "reducers/experiencesReducer";
 import userInfoReducer from "reducers/userInfoReducer";
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
@@ -15,11 +16,15 @@ const rootReducer = combineReducers({
   form: formReducer,
   userInfo: userInfoReducer,
   experiences: experiencesReducer,
+  experienceBeingEdited: experienceBeingEditedReducer,
 });
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      trace: true,
+      traceLimit: 30,
+    })) ||
   compose;
 
 const store = createStore(

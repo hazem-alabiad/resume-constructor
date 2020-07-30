@@ -1,6 +1,6 @@
 import {
   SET_CURRENT_USER_INFO,
-  CLEAR_CURRENT_USER_INFO,
+  USER_LOGOUT,
 } from "constants/userInfoActionTypes";
 
 export const setCurrentUserInfo = (userInfo) => ({
@@ -8,6 +8,6 @@ export const setCurrentUserInfo = (userInfo) => ({
   payload: userInfo,
 });
 
-export const clearCurrentUserInfo = () => ({
-  type: CLEAR_CURRENT_USER_INFO,
+export const userLogout = () => ({
+  type: USER_LOGOUT,
 });

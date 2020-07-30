@@ -41,6 +41,8 @@
 			"placeholder": "- Takım Lideri, TGU projesi.\n- Çözüm Mimarı, bulut hizmetleri."
 		},
 		"edit": "Deneyimi düzenle",
+		"editFailure": "Deneyimi düzenlerken bir hata oluştu!",
+		"editSuccess": "Deneyimi başarıyla düzenlediniz!",
 		"failure": "Yeni bir deneyim eklenirken bir hata oluştu!",
 		"fetchError": "Deneyimleriniz getirilirken bir sorun oluştu!",
 		"howToAddExperiences": "Deneyim eklemek için yukarıdaki profilimi düzenlemeye gidebilirsiniz.",

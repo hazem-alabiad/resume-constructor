@@ -5,7 +5,7 @@ import WithTrans from "./WithTrans";
 // #####################   Globals    ######################
 
 // ##################   Main Component    ##################
-export const ActionModal = ({
+export const AddEditModal = ({
   isOpen,
   toggle,
   header,
