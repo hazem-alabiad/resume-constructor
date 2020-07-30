@@ -3,38 +3,37 @@ import { ROUTE_NAMES } from "constants/routeNames";
 import PropTypes from "prop-types";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Flag, Icon, Menu } from "semantic-ui-react";
+import { Button, Flag, Icon, Image, Menu } from "semantic-ui-react";
 import WithTrans from "./WithTrans";
 
 const Header = ({ logout }) => {
   const { t, i18n } = useTranslation();
 
   return (
-    <Menu size="mini" borderless>
+    <Menu size="mini" borderless stackable>
       <Menu.Item>
-        <Button
-          color="red"
-          size="mini"
-          onClick={() => {
-            logout();
-          }}
-        >
-          <Icon name="sign-out"></Icon> <WithTrans keyword="Logout" />
+        <Image src="/favicon.jpeg" size="mini" circular />
+      </Menu.Item>
+      <Menu.Item>
+        <Button onClick={() => navigate(ROUTE_NAMES.home)}>{t("Home")}</Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button onClick={() => navigate(ROUTE_NAMES.editProfile)}>
+          {t("Edit my profile")}
         </Button>
       </Menu.Item>
-      <Menu className="ml-auto" secondary>
-        <Menu.Item>
-          <Button onClick={() => navigate(ROUTE_NAMES.home)}>
-            {t("Home")}
-          </Button>
-        </Menu.Item>
-        <Menu.Item>
-          <Button onClick={() => navigate(ROUTE_NAMES.editProfile)}>
-            {t("Edit my profile")}
-          </Button>
-        </Menu.Item>
-      </Menu>
       <Menu.Menu position="right">
+        <Menu.Item>
+          <Button
+            color="red"
+            size="mini"
+            onClick={() => {
+              logout();
+            }}
+          >
+            <Icon name="sign-out"></Icon> <WithTrans keyword="Logout" />
+          </Button>
+        </Menu.Item>
         <Menu.Item>
           <Button.Group size="mini">
             <Button
