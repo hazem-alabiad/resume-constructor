@@ -1,8 +1,9 @@
 import {
   isAuthenticated,
   loadPersistState,
-  persistState,
+  persistState
 } from "helpers/localStorageHelpers";
+import educationsReducer from "reducers/educationReducer";
 import experienceBeingEditedReducer from "reducers/experiencesBeingEditedReducer";
 import experiencesReducer from "reducers/experiencesReducer";
 import userInfoReducer from "reducers/userInfoReducer";
@@ -15,16 +16,14 @@ const persistentState = loadPersistState();
 const rootReducer = combineReducers({
   form: formReducer,
   userInfo: userInfoReducer,
-  experiences: experiencesReducer,
   experienceBeingEdited: experienceBeingEditedReducer,
+  experiences: experiencesReducer,
+  educations: educationsReducer,
 });
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      trace: true,
-      traceLimit: 30,
-    })) ||
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
 const store = createStore(
