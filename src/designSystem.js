@@ -67,7 +67,7 @@ export const DESIGN_SYSTEM = {
   },
 
   experienceDateStyle: (str: String): HTMLDivElement => {
-    return <div style={{ color: "grey" }}>{str}</div>;
+    return <div style={{ color: "darkgrey" }}>{str}</div>;
   },
 
   many: (...objects) => {

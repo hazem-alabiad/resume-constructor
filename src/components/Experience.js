@@ -2,8 +2,8 @@ import * as experienceActions from "actions/experienceActions";
 import * as setExperienceBeingEditedActions from "actions/experienceBeingEditedActions";
 import {
   apiAddExperience,
-
-  apiEditExperience, apiFetchExperiences
+  apiEditExperience,
+  apiFetchExperiences,
 } from "api/apis";
 import { DESIGN_SYSTEM } from "designSystem";
 import { getRandomDate } from "helpers/strings";
@@ -11,6 +11,7 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Divider, Grid, Icon, Message, Placeholder } from "semantic-ui-react";
+import { ALL_ICONS_IN_ALL_CONTEXTS } from "semantic-ui-react/src/lib/SUI";
 import BackgroundSectionHeader from "./BackgroundSectionHeader";
 import WithTrans from "./WithTrans";
 
@@ -120,6 +121,14 @@ class Experience extends Component {
        * @param {string} experience.description
        */
       (experience, id) => {
+        const companyName = experience.company.toLowerCase();
+        let icon;
+        if (ALL_ICONS_IN_ALL_CONTEXTS.indexOf(companyName) > 0) {
+          icon = <Icon name={companyName} floated="right" size="huge" />;
+        } else {
+          icon = <Icon name="building outline" floated="right" size="huge" />;
+        }
+
         return (
           <Grid key={id}>
             <Grid.Column mobile="12" tablet="13" computer="14">
@@ -137,11 +146,7 @@ class Experience extends Component {
               </p>
             </Grid.Column>
             <Grid.Column mobile="4" tablet="3" computer="2">
-              <Icon
-                name={experience.company && experience.company.toLowerCase()}
-                floated="right"
-                size="huge"
-              />
+              {icon}
             </Grid.Column>
           </Grid>
         );
