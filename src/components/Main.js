@@ -12,6 +12,9 @@ import Signup from "./Signup";
 // ###################   Helpers    ####################
 const mapStateToProps = (state) => ({
   userInfo: state.userInfo,
+  lastExperience: state.experiences && state.experiences[0],
+  lastEducation: state.educations && state.educations[0],
+  previousThreeExperiences: state.experiences && state.experiences.slice(1, 4),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -27,6 +30,13 @@ const mapDispatchToProps = (dispatch) => ({
  * @property {Function} userLogout
  * @property {Object} userInfo
  * @property {string} userInfo.token
+ * @property {object} lastExperience
+ * @property {string} lastExperience.role
+ * @property {string} lastExperience.company
+ * @property {object} lastEducation
+ * @property {string} lastEducation.startYear
+ * @property {string} lastEducation.schoolName
+ * @property {object[]} previousThreeExperiences
  * @extends {Component<Props>}
  */
 class Main extends Component {
@@ -42,6 +52,13 @@ class Main extends Component {
 
   onLogout = () => logout(this.props.userLogout);
 
+  previousThreeCompanyNames = () => {
+    if (!this.props.previousThreeExperiences) return [];
+    return this.props.previousThreeExperiences.map(
+      (experience) => experience.company
+    );
+  };
+
   render() {
     return (
       <Router>
@@ -49,12 +66,18 @@ class Main extends Component {
           path={ROUTE_NAMES.home}
           logout={this.onLogout}
           userInfo={this.props.userInfo}
+          lastExperience={this.props.lastExperience}
+          lastEducation={this.props.lastEducation}
+          previousThreeCompanies={this.previousThreeCompanyNames()}
           default
         />
         <Home
           path={ROUTE_NAMES.editProfile}
           logout={this.onLogout}
           userInfo={this.props.userInfo}
+          lastExperience={this.props.lastExperience}
+          lastEducation={this.props.lastEducation}
+          previousThreeCompanies={this.previousThreeCompanyNames()}
         />
         <Login path={ROUTE_NAMES.login} onSubmit={this.handleLoginSubmit} />
         <Signup

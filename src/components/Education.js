@@ -141,7 +141,9 @@ class Education extends Component {
           <Grid key={index}>
             <Grid.Column>
               <BackgroundItem
-                header={`${startYear} ${schoolName}`}
+                header={`${startYear} ${
+                  index === 0 ? "Present " : ""
+                } ${schoolName}`}
                 metadata={`${degreeType}, ${programName}`}
                 extra={`${startYear} - ${endYear}`}
                 EditItemModal={

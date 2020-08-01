@@ -22,8 +22,18 @@ import NotAuthorized from "./NotAuthorized";
  * @param {string} props.userInfo.username
  * @param {string} props.userInfo.firstName
  * @param {string} props.userInfo.lastName
+ * @param {object} props.lastExperience
+ * @param {string} props.lastExperience.role
+ * @param {string} props.lastExperience.company
+ * @param {string[]} props.previousThreeCompanies
  */
-const Home = ({ logout, userInfo }) => {
+const Home = ({
+  logout,
+  userInfo,
+  lastExperience,
+  previousThreeCompanies,
+  lastEducation,
+}) => {
   if (!isAuthenticated()) {
     // If not authenticated
     setTimeout(() => {
@@ -54,7 +64,12 @@ const Home = ({ logout, userInfo }) => {
       <Header logout={logout} />
       <Grid centered className="mx-1">
         <Grid.Column mobile="16" tablet="15" computer="14">
-          <Bio userInfo={userInfo} />
+          <Bio
+            userInfo={userInfo}
+            previousThreeCompanies={previousThreeCompanies}
+            lastExperience={lastExperience}
+            lastEducation={lastEducation}
+          />
         </Grid.Column>
         <Grid.Column mobile="16" tablet="15" computer="14">
           <Background />
@@ -74,5 +89,13 @@ Home.propTypes = {
     username: PropTypes.string,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
+  }),
+  lastExperience: PropTypes.shape({
+    role: PropTypes.string,
+    company: PropTypes.string,
+  }),
+  lastEducation: PropTypes.shape({
+    schoolName: PropTypes.string,
+    startYear: PropTypes.string,
   }),
 };

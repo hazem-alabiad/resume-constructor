@@ -18,7 +18,6 @@ const EditItemModalWrapper = ({
   handleEditItem,
   EditItemForm,
 }) => {
-  console.log(EditItemForm);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setItemBeingEdited(item);
@@ -27,11 +26,7 @@ const EditItemModalWrapper = ({
 
   return (
     <div>
-      <Button
-        icon="edit outline"
-        color="vk"
-        onClick={toggle}
-      ></Button>
+      <Button icon="edit outline" color="vk" onClick={toggle}></Button>
       <AddEditModal
         isOpen={isOpen}
         toggle={toggle}

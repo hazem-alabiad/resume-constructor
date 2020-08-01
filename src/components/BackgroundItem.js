@@ -2,6 +2,7 @@ import { ROUTE_NAMES } from "constants/routeNames";
 import PropTypes from "prop-types";
 import React from "react";
 import { Button } from "semantic-ui-react";
+import { DESIGN_SYSTEM } from "designSystem";
 
 /**
  * ##################   Main Component    ##################
@@ -21,6 +22,7 @@ const BackgroundItem = ({
   EditItemModal,
   DeleteItemModal,
 }) => {
+  const { setHeaderStyle, setMetadataStyle, setExtraStyle } = DESIGN_SYSTEM;
   return (
     <>
       {/* If edit profile page show `edit` and `delete` buttons else, hide them */}
@@ -32,9 +34,9 @@ const BackgroundItem = ({
           {DeleteItemModal}
         </Button.Group>
       )}
-      <div style={{ color: "black", fontWeight: "bold" }}>{header}</div>
-      <div style={{ color: "dimgrey" }}>{metadata}</div>
-      <div style={{ color: "darkgrey" }}>{extra}</div>
+      <div style={setHeaderStyle()}>{header}</div>
+      <div style={setMetadataStyle()}>{metadata}</div>
+      <div style={setExtraStyle()}>{extra}</div>
       <p className="mt-3" style={{ whiteSpace: "pre" }}>
         {content}
       </p>

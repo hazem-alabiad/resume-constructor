@@ -2,7 +2,12 @@ export const DESIGN_SYSTEM = {
   // #############################################
   // ##############   Properties   ###############
   // #############################################
-  colors: {},
+  colors: {
+    black: "black",
+    dimgrey: "dimgrey",
+    darkgrey: "darkgrey",
+    silver: "silver",
+  },
 
   // #############################################
   // ################   Methods   ################
@@ -23,6 +28,51 @@ export const DESIGN_SYSTEM = {
 
   setAzureBgColor: () => {
     document.body.style.backgroundColor = "azure";
+  },
+
+  // #################    Styling Item    #################
+  setHeaderStyle: (fontSize: String = ""): Object => {
+    if (fontSize)
+      return {
+        color: DESIGN_SYSTEM.colors.black,
+        fontWeight: "bold",
+        fontSize,
+      };
+    return { color: DESIGN_SYSTEM.colors.black, fontWeight: "bold" };
+  },
+
+  setMetadataStyle: (fontSize: String = ""): Object => {
+    if (fontSize) return { color: DESIGN_SYSTEM.colors.dimgrey, fontSize };
+    return { color: DESIGN_SYSTEM.colors.dimgrey };
+  },
+
+  setExtraStyle: (fontSize: String = ""): Object => {
+    if (fontSize) return { color: DESIGN_SYSTEM.colors.darkgrey, fontSize };
+    return { color: DESIGN_SYSTEM.colors.darkgrey };
+  },
+
+  setSuperLightStyle: (fontSize: String = ""): Object => {
+    if (fontSize) return { color: DESIGN_SYSTEM.colors.silver, fontSize };
+    return { color: DESIGN_SYSTEM.colors.silver };
+  },
+  // #######################################################
+
+  // ##################    Font Sizes    ###################
+  setFontSize: {
+    header: {
+      fontSize: "3em",
+    },
+    metadata: {
+      fontSize: "1.8em",
+    },
+    extra: {
+      fontSize: "1.5em",
+    },
+  },
+  // #######################################################
+
+  setFontWeight: (fontWight: String = "normal") => {
+    return { fontWight };
   },
 
   many: (...objects) => {
