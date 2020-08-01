@@ -1,27 +1,22 @@
 import * as experienceActions from "actions/experienceActions";
-import * as setExperienceBeingEditedActions from "actions/experienceBeingEditedActions";
-import {
-  apiAddExperience,
-  apiEditExperience,
-  apiFetchExperiences,
-} from "api/apis";
-import { DESIGN_SYSTEM } from "designSystem";
+import * as setItemBeingEditedActions from "actions/itemBeingEditedActions";
+import { apiAddItem, apiEditItem, apiFetchItems } from "api/apis";
+import URLS from "api/urls";
 import { getRandomDate } from "helpers/strings";
 import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Divider, Grid, Icon, Message, Placeholder } from "semantic-ui-react";
+import { Grid, Icon, Message, Placeholder } from "semantic-ui-react";
 import { ALL_ICONS_IN_ALL_CONTEXTS } from "semantic-ui-react/src/lib/SUI";
+import AddExperience from "./AddExperience";
+import BackgroundItem from "./BackgroundItem";
 import BackgroundSectionHeader from "./BackgroundSectionHeader";
+import DeleteItemModal from "./DeleteItemModal";
+import EditExperience from "./EditExperience";
+import EditItemModalWrapper from "./EditItemModalWrapper";
 import WithTrans from "./WithTrans";
 
 // #################    Globals   #################
-const {
-  experienceRoleStyle,
-  experienceCompanyStyle,
-  experienceDateStyle,
-} = DESIGN_SYSTEM;
-
 const mapStateToProps = (state) => ({
   userInfo: state.userInfo,
   experiences: state.experiences,
@@ -36,9 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
   deleteExperience: (experienceId) =>
     dispatch(experienceActions.deleteExperience(experienceId)),
   setExperienceBeingEdited: (experience) =>
-    dispatch(
-      setExperienceBeingEditedActions.setExperienceBeingEdited(experience)
-    ),
+    dispatch(setItemBeingEditedActions.setItemBeingEdited(experience)),
   editExperience: (updatedExperience) =>
     dispatch(experienceActions.editExperience(updatedExperience)),
 });
@@ -54,6 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
  * @property {Function} loadingExperiences
  * @property {Function} deleteExperience
  * @property {Function} editExperience
+ * @property {Function} setExperienceBeingEdited
  * @extends {Component<Props>}
  */
 class Experience extends Component {
@@ -61,24 +55,36 @@ class Experience extends Component {
   componentDidMount() {
     this.props.loadingExperiences();
     // Load experiences by making an API call
-    apiFetchExperiences(this.props.fetchExperiences, this.props.userInfo.token);
+    apiFetchItems(
+      URLS.EXPERIENCE,
+      this.props.userInfo.token,
+      this.props.fetchExperiences,
+      <WithTrans keyword="experience.fetchError" />
+    );
   }
 
   handleAddExperience = (values, reduxDevtoolCbFn, formProps) => {
-    const { role, company, description } = values;
     const { closeOnSubmit } = formProps;
-    apiAddExperience(
-      role,
-      company,
-      description,
+    apiAddItem(
+      URLS.EXPERIENCE,
+      values,
       this.props.addExperience,
-      closeOnSubmit
+      closeOnSubmit,
+      "experience.success",
+      "experience.failure"
     );
   };
 
   handleEditExperience = (values, reduxDevtoolCbFn, formProps) => {
     const { closeOnSubmit } = formProps;
-    apiEditExperience(values, closeOnSubmit, this.props.editExperience);
+    apiEditItem(
+      URLS.EXPERIENCE,
+      values,
+      closeOnSubmit,
+      this.props.editExperience,
+      "experience.editSuccess",
+      "experience.editFailure"
+    );
   };
 
   renderExperiences = () => {
@@ -98,7 +104,7 @@ class Experience extends Component {
           </Placeholder>
         </Grid.Column>
       );
-    } else if (!this.props.experiences.length) {
+    } else if (!this.props.experiences || !this.props.experiences.length) {
       return (
         <Grid.Column>
           <Message info>
@@ -120,8 +126,9 @@ class Experience extends Component {
        * @param {string} experience.company
        * @param {string} experience.description
        */
-      (experience, id) => {
-        const companyName = experience.company.toLowerCase();
+      (experience, index) => {
+        const { id, role, company, description } = experience;
+        const companyName = company.toLowerCase();
         let icon;
         if (ALL_ICONS_IN_ALL_CONTEXTS.indexOf(companyName) > 0) {
           icon = <Icon name={companyName} floated="right" size="huge" />;
@@ -130,20 +137,31 @@ class Experience extends Component {
         }
 
         return (
-          <Grid key={id}>
+          <Grid key={index}>
             <Grid.Column mobile="12" tablet="13" computer="14">
-              {experienceRoleStyle(
-                experience.role,
-                experience,
-                this.props.deleteExperience,
-                this.props.setExperienceBeingEdited,
-                this.handleEditExperience
-              )}
-              {experienceCompanyStyle(experience.company)}
-              {experienceDateStyle(getRandomDate())}
-              <p className="mt-3" style={{ whiteSpace: "pre" }}>
-                {experience.description}
-              </p>
+              <BackgroundItem
+                header={role}
+                metadata={company}
+                extra={getRandomDate()}
+                content={description}
+                EditItemModal={
+                  <EditItemModalWrapper
+                    item={experience}
+                    setItemBeingEdited={this.props.setExperienceBeingEdited}
+                    handleEditItem={this.handleEditExperience}
+                    EditItemForm={EditExperience}
+                  />
+                }
+                DeleteItemModal={
+                  <DeleteItemModal
+                    path={URLS.EXPERIENCE}
+                    deleteItemAction={this.props.deleteExperience}
+                    itemId={id}
+                    successMsg="experience.deleteSuccess"
+                    failureMsg="experience.deleteFailure"
+                  />
+                }
+              />
             </Grid.Column>
             <Grid.Column mobile="4" tablet="3" computer="2">
               {icon}
@@ -160,11 +178,12 @@ class Experience extends Component {
         <BackgroundSectionHeader
           sectionIcon="file alternate"
           sectionName="Experience"
-          sectionAddHeader="experience.add"
+          addItemModalHeader="experience.add"
           onSubmit={this.handleAddExperience}
+          AddItemForm={AddExperience}
         />
+
         {this.renderExperiences()}
-        <Divider className="my-5" />
       </>
     );
   }

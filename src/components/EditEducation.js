@@ -1,5 +1,5 @@
-import AddEditExperienceForm from "forms/AddEditExperienceForm";
-import addEditExperienceValidate from "forms/addEditExperienceValidate";
+import AddEditEducationForm from "forms/AddEditEducationForm";
+import addEditEducationValidate from "forms/addEditEducationValidate";
 import { FORM_NAMES } from "forms/formNames";
 import React from "react";
 import { connect } from "react-redux";
@@ -18,7 +18,7 @@ import { reduxForm } from "redux-form";
  * @param {string} props.experience.company
  * @param {string} props.experience.description
  */
-const _editExperienceForm = (props) => {
+const _editEducationForm = (props) => {
   const {
     anyTouched,
     handleSubmit,
@@ -29,13 +29,13 @@ const _editExperienceForm = (props) => {
   } = props;
 
   const isDisabled = () => {
-    if (invalid || !anyTouched) return true;
-    if (!submitFailed && submitSucceeded) return true;
+    if (invalid || !anyTouched || (!submitFailed && submitSucceeded))
+      return true;
     return false;
   };
 
   return (
-    <AddEditExperienceForm
+    <AddEditEducationForm
       handleSubmit={handleSubmit}
       isDisabled={isDisabled()}
       submitting={submitting}
@@ -49,10 +49,10 @@ const mapStateToProps = (state) => ({
 
 // ###############    Main Component    ###############
 const EditExperience = reduxForm({
-  form: FORM_NAMES.editExperience,
-  validate: addEditExperienceValidate,
+  form: FORM_NAMES.editEducation,
+  validate: addEditEducationValidate,
   enableReinitialize: true,
   touchOnChange: true,
-})(_editExperienceForm);
+})(_editEducationForm);
 
 export default connect(mapStateToProps)(EditExperience);

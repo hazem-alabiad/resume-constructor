@@ -7,9 +7,6 @@ import React from "react";
 const minLen = (str, len) => {
   return str.length < len ? i18n.t("MinLenErr", { num: len }) : "";
 };
-// const maxLen = (str, len) => {
-//   return str.length > len ? i18n.t("MaxLenErr", { num: len }) : "";
-// };
 
 /**
  *
@@ -18,7 +15,7 @@ const minLen = (str, len) => {
  * @param {string} values.company
  * @param {string} values.description
  */
-const validate = (values) => {
+const addEditExperienceValidate = (values) => {
   const errors = {
     role: "",
     company: "",
@@ -42,4 +39,4 @@ const validate = (values) => {
   return errors;
 };
 
-export default validate;
+export default addEditExperienceValidate;

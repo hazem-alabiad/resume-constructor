@@ -1,66 +1,90 @@
 {
-	"Already have an account": "Already have an account",
-	"Background": "Background",
-	"Cancel": "Cancel",
-	"Company": "Company",
-	"Connections": "Connections",
-	"Delete": "Delete",
-	"Deletion": "Deletion",
-	"Description": "Description",
-	"Edit my profile": "Edit my profile",
-	"Experience": "Experience",
-	"First Name": "First Name",
-	"Home": "Home",
-	"John": "John",
-	"Last Name": "Last Name",
-	"Login": "Login",
-	"Logout": "Logout",
-	"Lweis": "Lweis",
-	"MaxLenErr": "Must be ≤ '{{num}}' Characters!",
-	"MinLenErr": "Must be ≥ '{{num}}' Characters!",
-	"Name": "Name",
-	"New to Oplog": "New to Oplog",
-	"Password": "Password",
-	"Required": "Required!",
-	"Role": "Role",
-	"Send a message": "Send a message",
-	"Signup": "Signup",
-	"Submit": "Submit",
-	"Surname": "Surname",
-	"Username": "Username",
-	"deletionConfirm": "Are you sure?",
-	"experience": {
-		"add": "Add a new experience",
-		"company": {
-			"placeholder": "e.g. Google"
-		},
-		"delete": "Delete experience",
-		"deleteFailure": "There was an error during deleting the experience!",
-		"deleteSuccess": "You have removed an experience successfully!",
-		"description": {
-			"placeholder": "- Team Lead, TGU project.\n- Solution Architect, cloud services."
-		},
-		"edit": "Edit experience",
-		"editFailure": "There was an error when editing the experience!",
-		"editSuccess": "You have edited the experience successfully!",
-		"failure": "There was an error during adding a new experience!",
-		"fetchError": "There was a problem during fetching your experiences!",
-		"howToAddExperiences": "You can go to edit my profile above to add experiences.",
-		"noExperience": "You have not added any experience yet!",
-		"role": {
-			"placeholder": "e.g. Software engineer"
-		},
-		"success": "You have added a new experience successfully!"
-	},
-	"login": {
-		"failure": "There was an error during logging in!",
-		"invalid": "Username or password is incorrect!",
-		"success": "Welcome again, {{username}}!"
-	},
-	"redirectToLogin": "You are being directed to the login page ...",
-	"register": {
-		"duplicate": "Username '{{username}}' is already taken!",
-		"failure": "There was an error in the registration!",
-		"success": "You have registered successfully!"
-	}
+  "Already have an account": "Already have an account",
+  "Background": "Background",
+  "Cancel": "Cancel",
+  "Company": "Company",
+  "Connections": "Connections",
+  "Delete": "Delete",
+  "Deletion": "Deletion",
+  "Description": "Description",
+  "Edit my profile": "Edit my profile",
+  "Experience": "Experience",
+  "First Name": "First Name",
+  "Home": "Home",
+  "John": "John",
+  "Last Name": "Last Name",
+  "Login": "Login",
+  "Logout": "Logout",
+  "Lweis": "Lweis",
+  "MaxLenErr": "Must be ≤ '{{num}}' Characters!",
+  "MinLenErr": "Must be ≥ '{{num}}' Characters!",
+  "Name": "Name",
+  "New to Oplog": "New to Oplog",
+  "Password": "Password",
+  "Required": "Required!",
+  "Role": "Role",
+  "Send a message": "Send a message",
+  "Signup": "Signup",
+  "Submit": "Submit",
+  "Surname": "Surname",
+  "Username": "Username",
+  "deletionConfirm": "Are you sure?",
+  "experience": {
+    "add": "Add a new experience",
+    "company": {
+      "placeholder": "e.g. Google"
+    },
+    "delete": "Delete experience",
+    "deleteFailure": "There was an error during deleting the experience!",
+    "deleteSuccess": "You have removed an experience successfully!",
+    "description": {
+      "placeholder": "- Team Lead, TGU project.\n- Solution Architect, cloud services."
+    },
+    "edit": "Edit experience",
+    "editFailure": "There was an error when editing the experience!",
+    "editSuccess": "You have edited the experience successfully!",
+    "failure": "There was an error when adding a new experience!",
+    "fetchError": "There was a problem with fetching your experiences!",
+    "howToAddExperiences": "You can go to edit my profile above to add experiences.",
+    "noExperience": "You have not added any experience yet!",
+    "role": {
+      "placeholder": "e.g. Software engineer"
+    },
+    "success": "You have added a new experience successfully!"
+  },
+  "login": {
+    "failure": "There was an error during logging in!",
+    "invalid": "Username or password is incorrect!",
+    "success": "Welcome again, {{username}}!"
+  },
+  "redirectToLogin": "You are being directed to the login page ...",
+  "register": {
+    "duplicate": "Username '{{username}}' is already taken!",
+    "failure": "There was an error in the registration!",
+    "success": "You have registered successfully!"
+  },
+  "Education": "Education",
+  "Degree type": "Degree type",
+  "End year": "End year",
+  "Program name": "Program name",
+  "Start year": "Start year",
+  "education": {
+    "add": "Add a new education",
+    "noEducation": "You have not added any education yet!",
+    "howToAddEducations": "You can go to edit my profile above to add educations.",
+    "fetchError": "There was a problem with fetching your educations!",
+    "degreeTypePlaceholder": "e.g. Bachelor's Degree",
+    "schoolNamePlaceholder": "e.g. MIT",
+    "programNamePlaceholder": "e.g. Computer Engineering",
+    "startYearPlaceholder": "e.g. 2017",
+    "endYearPlaceholder": "e.g. 2019",
+    "addSuccessMsg": "You have added a new education successfully!",
+    "addFailureMsg": "There was an error when adding a new education!",
+    "deleteFailure": "There was an error while deleting the education!",
+    "deleteSuccess": "You have removed an education successfully!",
+    "editSuccess": "You have edited the education successfully!"
+  },
+  "Invalid year": "Invalid year!",
+  "Invalid year range": "Invalid year range!",
+  "School Name": "School Name"
 }

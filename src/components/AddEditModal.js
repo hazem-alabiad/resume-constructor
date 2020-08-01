@@ -5,18 +5,10 @@ import WithTrans from "./WithTrans";
 // #####################   Globals    ######################
 
 // ##################   Main Component    ##################
-export const AddEditModal = ({
-  isOpen,
-  toggle,
-  header,
-  handleSubmit,
-  onClose,
-  children,
-  icon = "add",
-}) => {
+export const AddEditModal = ({ isOpen, toggle, header, onClose, children }) => {
   return (
     <Modal open={isOpen} dimmer="blurring" onClose={onClose} closeOnEscape>
-      <Header icon={icon} content={header} />
+      <Header content={header} />
       <Modal.Content>{children}</Modal.Content>
       <Modal.Actions>
         <Button color="red" onClick={toggle}>

@@ -1,10 +1,10 @@
 import {
-  ADD_EXPERIENCE,
-  DELETE_EXPERIENCE,
-  EDIT_EXPERIENCE,
-  FETCH_EXPERIENCES,
-  LOADING_EXPERIENCES
-} from "constants/experienceActionTypes";
+  ADD_EDUCATION,
+  DELETE_EDUCATION,
+  EDIT_EDUCATION,
+  FETCH_EDUCATIONS,
+  LOADING_EDUCATIONS
+} from "constants/educationActionTypes";
 import { USER_LOGOUT } from "constants/userInfoActionTypes";
 import _ from "lodash";
 
@@ -21,11 +21,11 @@ import _ from "lodash";
  * @param {string} action.payload.description
  * @returns {object}
  */
-const experienceReducer = (state = {}, action) => {
+const educationReducer = (state = {}, action) => {
   switch (action.type) {
-    case ADD_EXPERIENCE:
+    case ADD_EDUCATION:
       return { ...action.payload };
-    case EDIT_EXPERIENCE:
+    case EDIT_EDUCATION:
       return state.id === action.payload.id ? { ...action.payload } : state;
     default:
       return state;
@@ -44,20 +44,18 @@ const experienceReducer = (state = {}, action) => {
  * @param {string} action.payload.description
  * @returns {object}
  */
-const experiencesReducer = (state = [], action) => {
+const educationsReducer = (state = [], action) => {
   switch (action.type) {
-    case FETCH_EXPERIENCES:
+    case FETCH_EDUCATIONS:
       return [...action.payload];
-    case LOADING_EXPERIENCES:
+    case LOADING_EDUCATIONS:
       return null;
-    case ADD_EXPERIENCE:
-      return [...state, experienceReducer(undefined, action)];
-    case DELETE_EXPERIENCE:
-      return _.filter(state, (experience) => experience.id !== action.payload);
-    case EDIT_EXPERIENCE:
-      return _.map(state, (experience) =>
-        experienceReducer(experience, action)
-      );
+    case ADD_EDUCATION:
+      return [...state, educationReducer(undefined, action)];
+    case DELETE_EDUCATION:
+      return _.filter(state, (education) => education.id !== action.payload);
+    case EDIT_EDUCATION:
+      return _.map(state, (education) => educationReducer(education, action));
     case USER_LOGOUT:
       return [];
     default:
@@ -65,4 +63,4 @@ const experiencesReducer = (state = [], action) => {
   }
 };
 
-export default experiencesReducer;
+export default educationsReducer;

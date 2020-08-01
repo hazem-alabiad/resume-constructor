@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid, Label, Segment } from "semantic-ui-react";
+import { Divider, Grid, Label, Segment } from "semantic-ui-react";
+import Education from "./Education";
 import Experience from "./Experience";
 import WithTrans from "./WithTrans";
 
@@ -23,6 +24,8 @@ const Background = () => {
       <Grid>
         <Grid.Column>
           <Experience />
+          <Divider className="my-5" />
+          <Education />
         </Grid.Column>
       </Grid>
     </Segment>
@@ -30,21 +33,3 @@ const Background = () => {
 };
 
 export default Background;
-
-// ###################    Types   ###################
-// ActionModal.propTypes = {
-//   isOpen: PropTypes.bool.isRequired,
-//   toggle: PropTypes.func.isRequired,
-//   header: PropTypes.object.isRequired,
-//   content: PropTypes.element.isRequired,
-//   handleSubmit: PropTypes.func.isRequired,
-//   onClose: PropTypes.func.isRequired,
-//   icon: PropTypes.string,
-// };
-
-// BackgroundSectionHeader.propTypes = {
-//   sectionIcon: PropTypes.string.isRequired,
-//   sectionName: PropTypes.string.isRequired,
-//   sectionAddHeader: PropTypes.string.isRequired,
-//   handleSubmit: PropTypes.func.isRequired,
-// };

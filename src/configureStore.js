@@ -4,8 +4,8 @@ import {
   persistState
 } from "helpers/localStorageHelpers";
 import educationsReducer from "reducers/educationReducer";
-import experienceBeingEditedReducer from "reducers/experiencesBeingEditedReducer";
 import experiencesReducer from "reducers/experiencesReducer";
+import itemBeingEditedReducer from "reducers/itemBeingEditedReducer";
 import userInfoReducer from "reducers/userInfoReducer";
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { reducer as formReducer } from "redux-form";
@@ -16,7 +16,7 @@ const persistentState = loadPersistState();
 const rootReducer = combineReducers({
   form: formReducer,
   userInfo: userInfoReducer,
-  experienceBeingEdited: experienceBeingEditedReducer,
+  itemBeingEdited: itemBeingEditedReducer,
   experiences: experiencesReducer,
   educations: educationsReducer,
 });

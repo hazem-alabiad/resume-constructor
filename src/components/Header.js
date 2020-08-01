@@ -39,7 +39,7 @@ const Header = ({ logout }) => {
           </Button>
         </Menu.Item>
         <Menu.Item>
-          <Button.Group size="mini">
+          <Button.Group siize="mini">
             <Button
               onClick={() => {
                 i18n.changeLanguage("en");

@@ -1,66 +1,90 @@
 {
-	"Already have an account": "Zaten hesabınız var mı",
-	"Background": "Geçmiş",
-	"Cancel": "İptal et",
-	"Company": "Şirket",
-	"Connections": "Bağlantılar",
-	"Delete": "Sil",
-	"Deletion": "Silme",
-	"Description": "Açıklama",
-	"Edit my profile": "Profilimi düzenle",
-	"Experience": "Deneyim",
-	"First Name": "İsim",
-	"Home": "Ana Sayfa",
-	"John": "Ali",
-	"Last Name": "Soyadı",
-	"Login": "Oturum aç",
-	"Logout": "Çıkış Yap",
-	"Lweis": "Kaya",
-	"MaxLenErr": "≤ ;{{num}}' Karakter olmalı!",
-	"MinLenErr": "≥ '{{num}}' Karakter olmalı!",
-	"Name": "Ad",
-	"New to Oplog": "Oplog'da yeni",
-	"Password": "Parola",
-	"Required": "Gereklidir!",
-	"Role": "Rol",
-	"Send a message": "Bir mesaj gönder",
-	"Signup": "kaydol",
-	"Submit": "Gönder",
-	"Surname": "Soyadı",
-	"Username": "Kullanıcı adı",
-	"deletionConfirm": "Emin misiniz?",
-	"experience": {
-		"add": "Yeni bir deneyim ekleyin",
-		"company": {
-			"placeholder": "Örneğin. Google"
-		},
-		"delete": "Deneyimi sil",
-		"deleteFailure": "Deneyim silinirken bir hata oluştu!",
-		"deleteSuccess": "Bir deneyimi başarıyla kaldırdınız!",
-		"description": {
-			"placeholder": "- Takım Lideri, TGU projesi.\n- Çözüm Mimarı, bulut hizmetleri."
-		},
-		"edit": "Deneyimi düzenle",
-		"editFailure": "Deneyimi düzenlerken bir hata oluştu!",
-		"editSuccess": "Deneyimi başarıyla düzenlediniz!",
-		"failure": "Yeni bir deneyim eklenirken bir hata oluştu!",
-		"fetchError": "Deneyimleriniz getirilirken bir sorun oluştu!",
-		"howToAddExperiences": "Deneyim eklemek için yukarıdaki profilimi düzenlemeye gidebilirsiniz.",
-		"noExperience": "Henüz bir deneyim eklemediniz!",
-		"role": {
-			"placeholder": "Örneğin. Yazılım Mühendisi"
-		},
-		"success": "Başarıyla yeni bir deneyim eklediniz!"
-	},
-	"login": {
-		"failure": "Giriş yapılırken bir hata oluştu!",
-		"invalid": "Kullanıcı adı veya şifre yanlış!",
-		"success": "Tekrar hoşgeldiniz, {{username}}!"
-	},
-	"redirectToLogin": "Giriş sayfasına yönlendiriliyorsunuz ...",
-	"register": {
-		"duplicate": "'{{username}}' kullanıcı adı zaten alınmış!",
-		"failure": "Kayıtta bir hata oluştu!",
-		"success": "Başarıyla kaydoldunuz!"
-	}
+  "Already have an account": "Zaten hesabınız var mı",
+  "Background": "Geçmiş",
+  "Cancel": "İptal et",
+  "Company": "Şirket",
+  "Connections": "Bağlantılar",
+  "Delete": "Sil",
+  "Deletion": "Silme",
+  "Description": "Açıklama",
+  "Edit my profile": "Profilimi düzenle",
+  "Experience": "Deneyim",
+  "First Name": "İsim",
+  "Home": "Ana Sayfa",
+  "John": "Ali",
+  "Last Name": "Soyadı",
+  "Login": "Oturum aç",
+  "Logout": "Çıkış Yap",
+  "Lweis": "Kaya",
+  "MaxLenErr": "≤ ;{{num}}' Karakter olmalı!",
+  "MinLenErr": "≥ '{{num}}' Karakter olmalı!",
+  "Name": "Ad",
+  "New to Oplog": "Oplog'da yeni",
+  "Password": "Parola",
+  "Required": "Gereklidir!",
+  "Role": "Rol",
+  "Send a message": "Bir mesaj gönder",
+  "Signup": "kaydol",
+  "Submit": "Gönder",
+  "Surname": "Soyadı",
+  "Username": "Kullanıcı adı",
+  "deletionConfirm": "Emin misiniz?",
+  "experience": {
+    "add": "Yeni bir deneyim ekleyin",
+    "company": {
+      "placeholder": "Örneğin. Google"
+    },
+    "delete": "Deneyimi sil",
+    "deleteFailure": "Deneyim silinirken bir hata oluştu!",
+    "deleteSuccess": "Bir deneyimi başarıyla kaldırdınız!",
+    "description": {
+      "placeholder": "- Takım Lideri, TGU projesi.\n- Çözüm Mimarı, bulut hizmetleri."
+    },
+    "edit": "Deneyimi düzenle",
+    "editFailure": "Deneyimi düzenlerken bir hata oluştu!",
+    "editSuccess": "Deneyimi başarıyla düzenlediniz!",
+    "failure": "Yeni bir deneyim eklenirken bir hata oluştu!",
+    "fetchError": "Deneyimleriniz getirilirken bir sorun oluştu!",
+    "howToAddExperiences": "Deneyim eklemek için yukarıdaki profilimi düzenlemeye gidebilirsiniz.",
+    "noExperience": "Henüz bir deneyim eklemediniz!",
+    "role": {
+      "placeholder": "Örneğin. Yazılım Mühendisi"
+    },
+    "success": "Başarıyla yeni bir deneyim eklediniz!"
+  },
+  "login": {
+    "failure": "Giriş yapılırken bir hata oluştu!",
+    "invalid": "Kullanıcı adı veya şifre yanlış!",
+    "success": "Tekrar hoşgeldiniz, {{username}}!"
+  },
+  "redirectToLogin": "Giriş sayfasına yönlendiriliyorsunuz ...",
+  "register": {
+    "duplicate": "'{{username}}' kullanıcı adı zaten alınmış!",
+    "failure": "Kayıtta bir hata oluştu!",
+    "success": "Başarıyla kaydoldunuz!"
+  },
+  "Education": "Eğitim",
+  "education": {
+    "add": "Yeni bir eğitim ekle",
+    "noEducation": "Henüz herhangi bir eğitim eklemediniz!",
+    "howToAddEducations": "Eğitim eklemek için yukarıdaki profilimi düzenlemeye gidebilirsiniz.",
+    "fetchError": "Eğitiminiz getirilirken bir sorun oluştu!",
+    "degreeTypePlaceholder": "Örneğin. Lisans",
+    "schoolNamePlaceholder": "Örneğin. MİT",
+    "programNamePlaceholder": "Örneğin. Bilgisayar Mühendisliği",
+    "startYearPlaceholder": "Örneğin. 2017",
+    "endYearPlaceholder": "Örneğin. 2019",
+    "addSuccessMsg": "Başarıyla yeni bir eğitim eklediniz!",
+    "addFailureMsg": "Yeni bir eğitim eklenirken bir hata oluştu!",
+    "deleteFailure": "Eğitim silinirken bir hata oluştu!",
+    "deleteSuccess": "Bir eğitimi başarıyla kaldırdınız!",
+    "editSuccess": "Eğitimi başarıyla düzenlediniz!"
+  },
+  "Degree type": "Mezuniyet derecesi",
+  "End year": "Yıl sonu",
+  "Program name": "Program adı",
+  "Start year": "Başlangıç yılı",
+  "Invalid year": "Geçersiz yıl!",
+  "Invalid year range": "Geçersiz yıl aralığı!",
+  "School Name": "Okul Adı"
 }

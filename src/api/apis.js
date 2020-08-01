@@ -6,7 +6,7 @@ import { ROUTE_NAMES } from "constants/routeNames";
 import { getObject, setObject } from "helpers/localStorageHelpers";
 import React from "react";
 import { toast } from "react-toastify";
-import * as URLS from "./urls";
+import URLS from "./urls";
 
 // #####################    Globals   #####################
 const headers = () => ({
@@ -91,20 +91,42 @@ export const apiLogin = (
     });
 };
 
-export const apiAddExperience = (
-  role: String,
-  company: String,
-  description: String,
-  addExperienceAction: Function,
-  onSubmitClose: Function
+export const apiFetchItems = (
+  path: String,
+  token: String,
+  fetchAction: Function,
+  failureMsg: String
 ) => {
-  console.log(addExperienceAction);
+  Axios.get(URLS.BASE_URL + path, {
+    headers: headers(),
+  })
+    .then((res) => {
+      if (res.status === 200) {
+        // If success
+        fetchAction(res.data);
+      }
+    })
+    .catch((err) => {
+      // if failure
+      console.error(err.response);
+
+      // general error message
+      toast.error(<WithTrans keyword={failureMsg} />);
+    });
+};
+
+export const apiAddItem = (
+  path: String,
+  requestBody: Object,
+  addItemAction: Function,
+  closeOnSubmit: Function,
+  successMsg: String,
+  failureMsg: String
+) => {
   Axios.post(
-    URLS.BASE_URL + URLS.EXPERIENCE,
+    URLS.BASE_URL + path,
     {
-      role,
-      company,
-      description,
+      ...requestBody,
     },
     { headers: headers() }
   )
@@ -112,10 +134,9 @@ export const apiAddExperience = (
       if (res.status === 200) {
         // If success
         // Close the modal
-        onSubmitClose();
-        const experience = { role, company, description };
-        addExperienceAction(experience);
-        toast.success(<WithTrans keyword="experience.success" />);
+        closeOnSubmit();
+        addItemAction(requestBody);
+        toast.success(<WithTrans keyword={successMsg} />);
       }
     })
     .catch((err) => {
@@ -123,40 +144,21 @@ export const apiAddExperience = (
       console.error(err.response);
 
       // general error message
-      toast.error(<WithTrans keyword="experience.failure" />);
+      toast.error(<WithTrans keyword={failureMsg} />);
     });
 };
 
-export const apiFetchExperiences = (
-  fetchExperiencesAction: Function,
-  token: String
-) => {
-  Axios.get(URLS.BASE_URL + URLS.EXPERIENCE, {
-    headers: headers(),
-  })
-    .then((res) => {
-      if (res.status === 200) {
-        // If success
-        fetchExperiencesAction(res.data);
-      }
-    })
-    .catch((err) => {
-      // if failure
-      console.error(err.response);
-
-      // general error message
-      toast.error(<WithTrans keyword="fetchError" />);
-    });
-};
-
-export const apiDeleteExperience = (
-  experienceId: Number,
+export const apiDeleteItem = (
+  path: String,
+  itemId: Number,
   closeOnDelete: Function,
-  deleteExperienceAction: Function
+  deleteItemAction: Function,
+  successMsg: String,
+  failureMsg: String
 ) => {
-  Axios.delete(URLS.BASE_URL + URLS.EXPERIENCE, {
+  Axios.delete(URLS.BASE_URL + path, {
     data: {
-      id: experienceId,
+      id: itemId,
     },
     headers: headers(),
   })
@@ -164,8 +166,8 @@ export const apiDeleteExperience = (
       if (res.status === 200) {
         // If success
         closeOnDelete();
-        deleteExperienceAction(experienceId);
-        toast.success(<WithTrans keyword="experience.deleteSuccess" />);
+        deleteItemAction(itemId);
+        toast.success(<WithTrans keyword={successMsg} />);
       }
     })
     .catch((err) => {
@@ -173,19 +175,22 @@ export const apiDeleteExperience = (
       console.error(err.response);
 
       // general error message
-      toast.error(<WithTrans keyword="experience.deleteFailure" />);
+      toast.error(<WithTrans keyword={failureMsg} />);
     });
 };
 
-export const apiEditExperience = (
-  experience: Object,
+export const apiEditItem = (
+  path: String,
+  requestBody: Object,
   closeOnSubmit: Function,
-  editExperienceAction: Function
+  editItemAction: Function,
+  successMsg,
+  failureMsg
 ) => {
   Axios.put(
-    URLS.BASE_URL + URLS.EXPERIENCE,
+    URLS.BASE_URL + path,
     {
-      ...experience,
+      ...requestBody,
     },
     {
       headers: headers(),
@@ -195,8 +200,8 @@ export const apiEditExperience = (
       if (res.status === 200) {
         // If success
         closeOnSubmit();
-        editExperienceAction(experience);
-        toast.success(<WithTrans keyword="experience.editSuccess" />);
+        editItemAction(requestBody);
+        toast.success(<WithTrans keyword={successMsg} />);
       }
     })
     .catch((err) => {
@@ -204,6 +209,6 @@ export const apiEditExperience = (
       console.error(err.response);
 
       // general error message
-      toast.error(<WithTrans keyword="experience.editFailure" />);
+      toast.error(<WithTrans keyword={failureMsg} />);
     });
 };

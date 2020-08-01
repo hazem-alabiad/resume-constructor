@@ -1,5 +1,5 @@
-import AddEditExperienceForm from "forms/AddEditExperienceForm";
-import addEditExperienceValidate from "forms/addEditExperienceValidate";
+import AddEditEducationForm from "forms/AddEditEducationForm";
+import addEditEducationValidate from "forms/addEditEducationValidate";
 import { FORM_NAMES } from "forms/formNames";
 import React from "react";
 import { reduxForm } from "redux-form";
@@ -13,15 +13,14 @@ import { reduxForm } from "redux-form";
  * @param {boolean} props.invalid
  * @param {string} props.formName
  */
-const _AddExperienceForm = (props) => {
-  const {
-    handleSubmit,
-    submitting,
-    invalid,
-    anyTouched,
-    submitFailed,
-    submitSucceeded,
-  } = props;
+const _AddEducationForm = ({
+  handleSubmit,
+  submitting,
+  invalid,
+  submitFailed,
+  submitSucceeded,
+  anyTouched,
+}) => {
   const isDisabled = () => {
     if (invalid || !anyTouched || (!submitFailed && submitSucceeded))
       return true;
@@ -29,7 +28,7 @@ const _AddExperienceForm = (props) => {
   };
 
   return (
-    <AddEditExperienceForm
+    <AddEditEducationForm
       handleSubmit={handleSubmit}
       isDisabled={isDisabled()}
       submitting={submitting}
@@ -38,9 +37,9 @@ const _AddExperienceForm = (props) => {
 };
 
 // ###############    Main Component    ###############
-const AddExperienceForm = reduxForm({
-  form: FORM_NAMES.addExperience,
-  validate: addEditExperienceValidate,
-})(_AddExperienceForm);
+const AddEducation = reduxForm({
+  form: FORM_NAMES.addEducation,
+  validate: addEditEducationValidate,
+})(_AddEducationForm);
 
-export default AddExperienceForm;
+export default AddEducation;

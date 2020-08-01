@@ -32,7 +32,7 @@ const LoginRegisterForm = ({
 }) => {
   const { t } = useTranslation();
   const isDisabled = () => {
-    if (invalid) return true;
+    if (invalid || submitting) return true;
     if (window.location.pathname !== ROUTE_NAMES.login && submitSucceeded)
       return true;
     return false;

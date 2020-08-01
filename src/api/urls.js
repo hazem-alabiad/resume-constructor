@@ -1,7 +1,10 @@
-export const BASE_URL = "https://oplog-interview.azurewebsites.net";
+const URLS = {
+  BASE_URL: "https://oplog-interview.azurewebsites.net",
+  SIGNUP: "/Auth/register",
+  LOGIN: "/Auth/authenticate",
+  EXPERIENCE: "/Experiences",
+  EDUCATIONS: "/Educations",
+  SKILLS: "/Skills",
+};
 
-export const SIGNUP = "/Auth/register";
-export const LOGIN = "/Auth/authenticate";
-export const EXPERIENCE = "/Experiences";
-export const Educations = "/Educations";
-export const Skills = "/Skills";
+export default URLS;

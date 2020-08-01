@@ -2,17 +2,26 @@ import { ROUTE_NAMES } from "constants/routeNames";
 import React, { useState } from "react";
 import { Button, Icon } from "semantic-ui-react";
 import { AddEditModal } from "./AddEditModal";
-import AddExperienceForm from "./AddExperience";
 import WithTrans from "./WithTrans";
 
 // #####################   Globals    ######################
 
 // ##################   Main Component    ##################
+/**
+ *
+ * @param {object} props
+ * @param {string} props.sectionIcon
+ * @param {string} props.sectionName
+ * @param {string} props.addItemModalHeader
+ * @param {Function} props.onSubmit
+ * @param {React.FunctionComponent} props.AddItemForm
+ */
 const BackgroundSectionHeader = ({
   sectionIcon,
   sectionName,
-  sectionAddHeader,
+  addItemModalHeader,
   onSubmit,
+  AddItemForm,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -36,10 +45,10 @@ const BackgroundSectionHeader = ({
       <AddEditModal
         isOpen={isOpen}
         toggle={toggle}
-        header={<WithTrans keyword={sectionAddHeader} />}
+        header={<WithTrans keyword={addItemModalHeader} />}
         onClose={() => setIsOpen(false)}
       >
-        <AddExperienceForm
+        <AddItemForm
           onSubmit={onSubmit}
           closeOnSubmit={() => setIsOpen(false)}
         />
