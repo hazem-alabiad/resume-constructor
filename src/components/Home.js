@@ -52,11 +52,11 @@ const Home = ({ logout, userInfo }) => {
   return (
     <>
       <Header logout={logout} />
-      <Grid container centered>
-        <Grid.Column mobile="16" tablet="14" computer="12">
+      <Grid centered className="mx-1">
+        <Grid.Column mobile="16" tablet="15" computer="14">
           <Bio userInfo={userInfo} />
         </Grid.Column>
-        <Grid.Column mobile="16" tablet="14" computer="12">
+        <Grid.Column mobile="16" tablet="15" computer="14">
           <Background />
         </Grid.Column>
       </Grid>

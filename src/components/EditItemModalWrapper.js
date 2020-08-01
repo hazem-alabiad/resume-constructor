@@ -26,10 +26,9 @@ const EditItemModalWrapper = ({
   };
 
   return (
-    <>
+    <div>
       <Button
         icon="edit outline"
-        className="ml-5"
         color="vk"
         onClick={toggle}
       ></Button>
@@ -44,7 +43,7 @@ const EditItemModalWrapper = ({
           closeOnSubmit={() => setIsOpen(false)}
         />
       </AddEditModal>
-    </>
+    </div>
   );
 };
 

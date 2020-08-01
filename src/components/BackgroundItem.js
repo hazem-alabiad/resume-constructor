@@ -23,18 +23,16 @@ const BackgroundItem = ({
 }) => {
   return (
     <>
-      <div style={{ color: "black", fontWeight: "bold" }}>
-        {header}
-        {/* If edit profile page show `edit` and `delete` buttons else, hide them */}
-        {window.location.pathname !== ROUTE_NAMES.editProfile ? (
-          <></>
-        ) : (
-          <Button.Group size="mini" className="mb-3">
-            {EditItemModal}
-            {DeleteItemModal}
-          </Button.Group>
-        )}
-      </div>
+      {/* If edit profile page show `edit` and `delete` buttons else, hide them */}
+      {window.location.pathname !== ROUTE_NAMES.editProfile ? (
+        <></>
+      ) : (
+        <Button.Group size="mini" className="mb-3">
+          {EditItemModal}
+          {DeleteItemModal}
+        </Button.Group>
+      )}
+      <div style={{ color: "black", fontWeight: "bold" }}>{header}</div>
       <div style={{ color: "dimgrey" }}>{metadata}</div>
       <div style={{ color: "darkgrey" }}>{extra}</div>
       <p className="mt-3" style={{ whiteSpace: "pre" }}>

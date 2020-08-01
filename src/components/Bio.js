@@ -9,8 +9,8 @@ import {
   Icon,
   Image,
   Placeholder,
-
-  Segment, Statistic
+  Segment,
+  Statistic
 } from "semantic-ui-react";
 import WithTrans from "./WithTrans";
 
@@ -86,12 +86,13 @@ const ButtonAndConnections = () => (
 const Bio = ({ userInfo }) => {
   return (
     <Segment>
-      <Grid container centered padded="vertically" verticalAlign="middle">
+      <Grid centered padded="vertically" verticalAlign="middle">
         <Grid.Column mobile="14" tablet="6" computer="5">
           <Image
             src="https://semantic-ui.com/images/avatar2/large/matthew.png"
             circular
             size="medium"
+            centered
           />
         </Grid.Column>
         <Grid.Column mobile="15" tablet="10" computer="11">
