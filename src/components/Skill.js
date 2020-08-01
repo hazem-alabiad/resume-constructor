@@ -122,10 +122,9 @@ class Skill extends Component {
         const { id, skillName } = skill;
 
         return (
-          <Grid>
+          <Grid key={index}>
             <Grid.Column>
               <BackgroundItem
-                key={index}
                 header={skillName}
                 isSkill={true}
                 EditItemModal={

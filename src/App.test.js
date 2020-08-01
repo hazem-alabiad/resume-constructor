@@ -1,17 +1,10 @@
-test("login reducer", () => {
-  const beforeLogin = {
-    username: "",
-    password: "",
-    token: "",
-  };
+import store from "configureStore";
+import { LOADING_EDUCATIONS } from "constants/educationActionTypes";
 
-  const afterLogin = {
-    username: "",
-  };
+test("Education reducer", () => {
+  const before = [];
+
+  const after = null;
+
+  store.dispatch({ type: LOADING_EDUCATIONS });
 });
-
-test("Register Reducer", () => {
-  const beforeRegister = {
-    
-  }
-})
