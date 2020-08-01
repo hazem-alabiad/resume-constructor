@@ -1,11 +1,14 @@
 import WithTrans from "components/WithTrans";
-import i18n from "i18n";
 import React from "react";
 
 // ##################   Globals   ##################
 
 const minLen = (str, len) => {
-  return str.length < len ? i18n.t("MinLenErr", { num: len }) : "";
+  return str.length < len ? (
+    <WithTrans keyword="MinLenErr" vars={{ num: len }} />
+  ) : (
+    ""
+  );
 };
 
 /**

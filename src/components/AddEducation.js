@@ -40,6 +40,7 @@ const _AddEducationForm = ({
 const AddEducation = reduxForm({
   form: FORM_NAMES.addEducation,
   validate: addEditEducationValidate,
+  touchOnChange: true,
 })(_AddEducationForm);
 
 export default AddEducation;

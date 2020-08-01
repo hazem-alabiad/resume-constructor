@@ -59,7 +59,7 @@ class Experience extends Component {
       URLS.EXPERIENCE,
       this.props.userInfo.token,
       this.props.fetchExperiences,
-      <WithTrans keyword="experience.fetchError" />
+      "experience.fetchError"
     );
   }
 
@@ -144,6 +144,7 @@ class Experience extends Component {
                 metadata={company}
                 extra={getRandomDate()}
                 content={description}
+                isSkill={false}
                 EditItemModal={
                   <EditItemModalWrapper
                     item={experience}

@@ -53,6 +53,7 @@ SignupForm.propTypes = {
 const Signup = reduxForm({
   form: FORM_NAMES.signup,
   validate: loginSignupValidate,
+  touchOnChange: true,
 })(SignupForm);
 
 export default Signup;

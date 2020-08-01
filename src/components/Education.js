@@ -146,6 +146,7 @@ class Education extends Component {
                 } ${schoolName}`}
                 metadata={`${degreeType}, ${programName}`}
                 extra={`${startYear} - ${endYear}`}
+                isSkill={false}
                 EditItemModal={
                   <EditItemModalWrapper
                     item={education}

@@ -12,36 +12,18 @@ import renderField from "./renderField";
  * @param {boolean} props.isDisabled
  * @param {boolean} props.submitting
  */
-const AddEditExperienceForm = ({ handleSubmit, isDisabled, submitting }) => {
+const AddEditSkillForm = ({ handleSubmit, isDisabled, submitting }) => {
   const { t } = useTranslation();
 
   return (
     <Form size="large" onSubmit={handleSubmit}>
       <Form.Field required>
         <Field
-          name="role"
+          name="skillName"
           component={renderField}
-          label={t("Role")}
+          label={t("Skill name")}
           type="text"
-          placeholder={t("experience.role.placeholder")}
-        />
-      </Form.Field>
-      <Form.Field required>
-        <Field
-          name="company"
-          component={renderField}
-          label={t("Company")}
-          type="text"
-          placeholder={t("experience.company.placeholder")}
-        />
-      </Form.Field>
-      <Form.Field>
-        <Field
-          name="description"
-          component={renderField}
-          label={t("Description")}
-          type="textarea"
-          placeholder={t("experience.description.placeholder")}
+          placeholder={t("skill.skillNamePlaceholder")}
         />
       </Form.Field>
       <Button
@@ -59,10 +41,10 @@ const AddEditExperienceForm = ({ handleSubmit, isDisabled, submitting }) => {
   );
 };
 
-export default AddEditExperienceForm;
+export default AddEditSkillForm;
 
 // ##################   Types   ##################
-AddEditExperienceForm.propTypes = {
+AddEditSkillForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,

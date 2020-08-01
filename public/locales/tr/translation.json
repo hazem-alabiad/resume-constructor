@@ -87,5 +87,20 @@
   "Invalid year": "Geçersiz yıl!",
   "Invalid year range": "Geçersiz yıl aralığı!",
   "School Name": "Okul Adı",
-  "Previous": "Önceki"
+  "Previous": "Önceki",
+  "skill": {
+    "fetchError": "Yeteneklerinizi getirirken bir sorun oluştu!",
+    "addSuccessMsg": "Başarıyla yeni bir beceri eklediniz!",
+    "addFailureMsg": "Yeni bir beceri eklenirken bir hata oluştu!",
+    "editSuccessMsg": "Beceriyi başarıyla düzenledin!",
+    "editFailureMsg": "Beceri düzenlenirken bir hata oluştu!",
+    "noSkill": "Henüz bir beceri eklemediniz!",
+    "howToAddSkills": "Beceri eklemek için yukarıdaki profilimi düzenlemeye gidebilirsiniz.",
+    "addItemHeader": "Yeni bir beceri ekle",
+    "skillNamePlaceholder": "Örneğin. Java, OOP, Yönetim",
+    "deleteSuccessMsg": "Bir beceri başarıyla kaldırıldı!",
+    "deleteFailureMsg": "Beceri silinirken bir hata oluştu!"
+  },
+  "Skills": "Beceriler",
+  "Skill name": "Beceri Adı"
 }

@@ -3,9 +3,10 @@ import {
   loadPersistState,
   persistState
 } from "helpers/localStorageHelpers";
-import educationsReducer from "reducers/educationReducer";
+import educationsReducer from "reducers/educationsReducer";
 import experiencesReducer from "reducers/experiencesReducer";
 import itemBeingEditedReducer from "reducers/itemBeingEditedReducer";
+import skillsReducer from "reducers/skillsReducer";
 import userInfoReducer from "reducers/userInfoReducer";
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { reducer as formReducer } from "redux-form";
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   itemBeingEdited: itemBeingEditedReducer,
   experiences: experiencesReducer,
   educations: educationsReducer,
+  skills: skillsReducer,
 });
 
 const composeEnhancers =

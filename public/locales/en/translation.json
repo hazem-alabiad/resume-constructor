@@ -41,7 +41,7 @@
       "placeholder": "- Team Lead, TGU project.\n- Solution Architect, cloud services."
     },
     "edit": "Edit experience",
-    "editFailure": "There was an error when editing the experience!",
+    "editFailure": "There was an error while editing the experience!",
     "editSuccess": "You have edited the experience successfully!",
     "failure": "There was an error when adding a new experience!",
     "fetchError": "There was a problem with fetching your experiences!",
@@ -87,5 +87,20 @@
   "Invalid year": "Invalid year!",
   "Invalid year range": "Invalid year range!",
   "School Name": "School Name",
-  "Previous": "Previous"
+  "Previous": "Previous",
+  "skill": {
+    "fetchError": "There was a problem with fetching your skills!",
+    "addSuccessMsg": "You have added a new skill successfully!",
+    "addFailureMsg": "There was an error when adding a new skill!",
+    "editSuccessMsg": "You have edited the skill successfully!",
+    "editFailureMsg": "There was an error while editing the skill!",
+    "noSkill": "You have not added any skill yet!",
+    "howToAddSkills": "You can go to edit my profile above to add skills.",
+    "addItemHeader": "Add a new skill",
+    "skillNamePlaceholder": "e.g. Java, OOP, Management",
+    "deleteSuccessMsg": "You have removed a skill successfully!",
+    "deleteFailureMsg": "There was an error while deleting the skill!"
+  },
+  "Skills": "Skills",
+  "Skill name": "Skill name"
 }

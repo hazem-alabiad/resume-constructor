@@ -47,6 +47,7 @@ const LoginForm = ({ handleSubmit, submitting, invalid, submitSucceeded }) => {
 const Login = reduxForm({
   form: FORM_NAMES.login,
   validate: loginSignupValidate,
+  touchOnChange: true,
 })(LoginForm);
 
 export default Login;

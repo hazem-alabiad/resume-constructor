@@ -2,6 +2,7 @@ import React from "react";
 import { Divider, Grid, Label, Segment } from "semantic-ui-react";
 import Education from "./Education";
 import Experience from "./Experience";
+import Skill from "./Skill";
 import WithTrans from "./WithTrans";
 
 // ###############   Helper Components    ##################
@@ -26,6 +27,8 @@ const Background = () => {
           <Experience />
           <Divider className="my-5" />
           <Education />
+          <Divider className="my-5" />
+          <Skill />
         </Grid.Column>
       </Grid>
     </Segment>

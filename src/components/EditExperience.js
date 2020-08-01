@@ -13,10 +13,6 @@ import { reduxForm } from "redux-form";
  * @param {boolean} props.submitting
  * @param {boolean} props.invalid
  * @param {string} props.formName
- * @param {object} props.experience
- * @param {string} props.experience.role
- * @param {string} props.experience.company
- * @param {string} props.experience.description
  */
 const _editExperienceForm = (props) => {
   const {

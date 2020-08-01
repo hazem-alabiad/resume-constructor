@@ -5,4 +5,6 @@ export const FORM_NAMES = {
   editExperience: "editExperience",
   addEducation: "addEducation",
   editEducation: "editEducation",
+  addSkill: "addSkill",
+  editSkill: "editSkill",
 };
